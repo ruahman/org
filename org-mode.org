@@ -1,0 +1,47 @@
+#+TITLE: Org Mode Demo
+#+AUTHOR: Diego Vila
+#+DATE: <2026-07-19 Sun>
+
+* key
+| key     | command                    | description                                   |
+|---------+----------------------------+-----------------------------------------------|
+| M-RET   | new bullit                 | create a new exact copy of bulit in next line |
+| M-Left  | move column or builit left | move column or bullet to left                 |
+| M-right | move colum or bullet right | move column or bullet to right                |
+| M-up    | move row or bullet up      | move row or bullet up                         |
+| M-down  | move row or bullet down    | move row or bullet down                       |
+| C-c .   | insert data-time stirng    | insert date time string                       |
+| C-c C-l | insert link                | insert link                                   |
+| C-c C-o | open link                  | open link                                     |
+| C-c C-e | export                     |                                               |
+|         |                            |                                               |
+
+* markup
+*Bold*
+/italic/
+=verbetum=
++strikthrough+
+
+* bullit
+as;ldkfjasf
+** test 23
+a;sl
+*** a;sldkfja;f
+**** dfkjP
+
+* links
+C-c C-l
+[[file:org-mode.org][orgmode]]
+C-c C-o : open
+
+* Tables
+| some | data   |
+|------+--------|
+| fo   | bar    |
+| test | me out |
+|      |        |
+
+* code
+#+BEGIN_SRC ruby
+  puts("hello world")
+#+END_SRC
