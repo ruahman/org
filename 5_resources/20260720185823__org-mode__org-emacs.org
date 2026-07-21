@@ -22,8 +22,9 @@
 | C-c C-d      | add deadline to todo              |                                               |
 | C-c C-s      | add schedule/start date to todo   |                                               |
 | S-Tab        | collapse all toggle               |                                               |
+| C-c C-q      | create tag                        |                                               |
 
-* markup
+* markup                                                           :anything:
 DEADLINE: <2026-07-20 Mon>
 *Bold*
 /italic/
