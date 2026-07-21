@@ -1,0 +1,128 @@
+#+TITLE: org mode
+#+DATE:  2026-07-20 18:58
+#+FILETAGS: org emacs
+
+
+* key
+| key          | command                           | description                                   |
+|--------------+-----------------------------------+-----------------------------------------------|
+| M-RET        | new bullit                        | create a new exact copy of bulit in next line |
+| M-Left       | move column or builit left        | move column or bullet to left                 |
+| M-right      | move colum or bullet right        | move column or bullet to right                |
+| M-up         | move row or bullet up             | move row or bullet up                         |
+| M-down       | move row or bullet down           | move row or bullet down                       |
+| C-u C-c .    | insert datetime                   |                                               |
+| C-c .        | insert data stirng                | insert date time string                       |
+| C-c C-l      | insert link                       | insert link                                   |
+| C-c C-o      | open link                         | open link                                     |
+| C-c C-e      | export                            |                                               |
+| M-S <arrows> | move groups                       |                                               |
+| C-c C-t      | convert to todo or toggle to done |                                               |
+| C-c C-c      | mark checklist                    |                                               |
+| C-c C-d      | add deadline to todo              |                                               |
+| C-c C-s      | add schedule/start date to todo   |                                               |
+| S-Tab        | collapse all toggle               |                                               |
+
+* markup
+DEADLINE: <2026-07-20 Mon>
+*Bold*
+/italic/
+=verbetum=
++strikthrough+
+
+* bullit
+as;ldkfjasf
+** test 23
+a;sl
+*** a;sldkfja;f
+**** dfkjP
+
+* links
+C-c C-l
+[[file:org-mode.org][orgmode]]
+C-c C-o : open
+
+* Tables
+| some | data   |
+|------+--------|
+| fo   | bar    |
+| test | me out |
+|      |        |
+
+* code
+#+BEGIN_SRC ruby
+  puts("hello world")
+#+END_SRC
+
+
+* this is a heading
+this is a paragraph
+
+here is another paragraph
+
+*strong emphasis*
+
+/slanted emphasis/
+
+=verbatim text here=
+
+~code text~
+
+_underline_
+
++strike through+
+
+* insert line
+
+M-x org-insert-link (C-c C-l)
+[[file:20260719233811__hello-world__foo-bar-zoom-test.org][test link]]
+
+M-x org-open-at-point (C-c C-o)
+open link
+
+* unorder list
+- item a
+  - item a.1
+  - item a.2
+  - item a.3
+- item b
+- item c
+
+  + test
+
+  + test 2
+
+  + test 3
+
+* order list
+1. one
+2. two
+3. there
+
+* source
+#+begin_src emacs-lisp
+  (defun hello-world ()
+    (message "hello world"))
+#+end_src
+
+* Headings
+
+** Heading 2
+
+*** Heading 3
+
+**** Heading 4
+
+***** Heading 5
+
+****** Heading 6
+
+* TODO todo [1/3] :test:tags:
+** DONE task one
+** TODO task two
+** TODO task 3
+
+* TODO check list [1/3]
+- [X] frute
+- [ ] abples
+- [ ] dog food
