@@ -1,0 +1,7 @@
+
+* inbox
+** look into org-roam
+** test inbox
+** look into org-gcal
+** test capture for inbox
+

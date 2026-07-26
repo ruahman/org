@@ -1,0 +1,160 @@
+#+TITLE: org-mode
+#+DATE: [2026-08-01 Sat 21:26]
+#+FILETAGS: org emacs
+
+
+
+* key
+| key                | command                         | description                                   |
+|--------------------+---------------------------------+-----------------------------------------------|
+| M-RET              | new bullit                      | create a new exact copy of bulit in next line |
+| M-Left             | move column or builit left      | move column or bullet to left                 |
+| M-right            | move colum or bullet right      | move column or bullet to right                |
+| M-up               | move row or bullet up           | move row or bullet up                         |
+| M-down             | move row or bullet down         | move row or bullet down                       |
+| C-u C-c .          | insert datetime                 |                                               |
+| C-c .              | insert timestamp                | insert date time string                       |
+| C-c C-l            | insert link                     | insert link                                   |
+| C-c C-o            | open link                       | open link                                     |
+| C-c C-e            | export                          |                                               |
+| M-S <arrows>       | move groups                     |                                               |
+| C-c C-t            | show option for TODO seq        |                                               |
+| C-c C-c            | mark checklist                  |                                               |
+| C-c C-d            | add deadline to todo            |                                               |
+| C-c C-s            | add schedule/start date to todo |                                               |
+| Shift-Tab          | collapse all toggle             |                                               |
+| Shift-<left right> | move through todo se            |                                               |
+| M-org-agenda       | org agenda view for todos       |                                               |
+| M-org-agenda-list  | list tasks squdualed            |                                               |
+| C-c C-q            | create tag                      |                                               |
+| C-c C-x p          | add property to TODO            |                                               |
+| C-c C-e c a        | export agenda to iCal file      |                                               |
+| C-c C-e            | export list for org file        |                                               |
+| C-c C-w            | refile                          |                                               |
+| C-c C-z            | log                             |                                               |
+| C-c C-x C-i        | clock in                        |                                               |
+| C-c C-x C-o        | clock out                       |                                               |
+
+* markup                                                           :anything:
+DEADLINE: <2026-07-20 Mon>
+:LOGBOOK:
+- Note taken on [2026-07-25 Sat 19:58] \\
+  see if you are in draw
+:END:
+
+*Bold*
+/italic/0
+=verbetum=
++strikthrough+
+
+* bullit
+SCHEDULED: <2026-07-30 Thu>
+as;ldkfjasf
+** test 23
+a;sl
+*** a;sldkfja;f
+**** dfkjP
+
+* links
+C-c C-l
+[[file:org-mode.org][orgmode]]
+C-c C-o : open
+
+* Tables
+| some | data   |
+|------+--------|
+| fo   | bar    |
+| test | me out |
+|      |        |
+
+* code
+#+BEGIN_SRC ruby
+  puts("hello world")
+#+END_SRC
+
+
+* this is a heading
+this is a paragraph
+
+here is another paragraph
+
+*strong emphasis*
+
+/slanted emphasis/
+
+=verbatim text here=
+
+~code text~
+
+_underline_
+
++strike through+
+
+* insert line
+
+M-x org-insert-link (C-c C-l)
+[[file:20260719233811__hello-world__foo-bar-zoom-test.org][test link]]
+
+M-x org-open-at-point (C-c C-o)
+open link
+
+* unorder list
+- item a
+  - item a.1
+  - item a.2
+  - item a.3
+- item b
+- item c
+
+  + test
+
+  + test 2
+
+  + test 3
+
+* order list
+1. one
+2. two
+3. there
+
+* source
+#+begin_src emacs-lisp
+  (defun hello-world ()
+    (message "hello world"))
+#+end_src
+
+* Headings
+
+** Heading 2
+
+*** Heading 3
+
+**** Heading 4
+
+***** Heading 5
+
+****** Heading 6
+
+* TODO todo [1/3] :test:tags:
+** DONE task one
+** TODO task two
+** TODO task 3
+
+* TODO check list [1/3]
+- [X] frute
+- [ ] abples
+- [ ] dog food
+
+* repeated tasks
+SCHEDULED: <2026-07-31 Fri +1w>
+
+* TODO org-mode agenda
+:LOGBOOK:
+CLOCK: [2026-07-25 Sat 19:59]--[2026-07-25 Sat 19:59] =>  0:00
+- Note taken on [2026-07-25 Sat 19:58] \\
+  i am in draw now
+:END:
+
+collects all your todo items and shows when they are due
+
+

@@ -1,0 +1,6 @@
+
+* tasks
+
+** NEXT task 1
+DEADLINE: <2026-07-28 Tue> SCHEDULED: <2026-07-25 Sat>
+** TODO test capture
