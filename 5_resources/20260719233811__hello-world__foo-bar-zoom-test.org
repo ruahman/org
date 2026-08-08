@@ -1,4 +1,0 @@
-#+TITLE: hello world
-#+DATE:  2026-07-19 23:38
-#+FILETAGS: foo bar zoom test
-

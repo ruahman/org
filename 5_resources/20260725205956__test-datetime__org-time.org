@@ -1,4 +1,0 @@
-#+TITLE: test datetime
-#+DATE:  [2026-07-25 Sat 22:59]
-#+FILETAGS: org time
-
