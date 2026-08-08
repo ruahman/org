@@ -1,0 +1,168 @@
+#+title:      org-roam
+#+date:       [2026-08-08 Sat 12:56]
+#+filetags:   :emacs:org:
+#+identifier: 20260808T125636
+
+org-roam is a tool for networking thought.
+based on roam research.
+
+org-roam allows for effortless non-hierarchical note-taking
+
+* brief intoduction to the Zettelkasten Method
+
+a digital slip-box
+
+it places heavy emphasis on connecting ideas.
+
+note should be small enought to fit a single concept
+
+the size limitation encourages ideas to be broken down into individual concepts.
+these ideas are linked together.
+
+* The Org-roam Node
+
+a node is a file or a headline with an ID
+
+for example
+#+begin_src org
+:PROPERTIES:
+:ID:       foo
+:END:
+#+title: Foo
+
+ * Bar
+:PROPERTIES:
+:ID:       bar
+:END:
+#+end_src
+
+here we created two nodes
+1. A file node
+2. A headline node
+
+~org-id-get-create~  adds an id to file or header
+
+
+* Setting up Org-roam
+
+Org-roam capabilities stem from its aggresssive caching: it crawls all files from *org-roam-directory*
+
+#+begin_src
+  (make-directory "~/org-roam")
+  (setq org-roam-directory (file-truename "~/org-roam"))
+#+end_src
+
+next, we setup Org-roam to run functions on file changes
+#+begin_src
+  (org-roam-db-autosync-mode)
+#+end_src
+
+to build cache manualy ~M-x org-roam-db-sync~
+
+* Creating and Linking Nodes
+
+org-roam makes it easy to create notes and link them together
+
+~org-roam-node-find~ : creates a node if does not exist, and visits node.
+
+~org-roam-capture~ : create a node if does note exist, and restores to current window upone note completion
+
+~org-roam-node-insert~ : createe a node if does not exits, and inserts link
+
+** Customize node completions
+
+#+begin_src
+  (setq org-roam-node-display-template
+      (concat "${title:*} "
+              (propertize "${tags:10}" 'face 'org-tag)))
+#+end_src
+
+propertize adds text properties to string
+
+* Node Caching
+
+org-roam uses a SQLite database to perform caching.
+
+all nodes (any file or headline with and ID) are cached by org-roam
+
+** When to cache
+
+by default, org-roam is eager to cache: each time an org-roam file is modified and saved,
+it updates the database
+
+* Org-roam Buffer
+
+the org-roam buffer is an interface to view relationships with other notes (backlinks, references)
+
+~org-roam-buffer-toggle~ : Launch an org-roam buffer on current node
+
+** Navigating the Org-roam buffer
+
+the org-roam bufffer uses magit-section, making the magit-section keybindings available
+
+** Configure what is displayed in the buffer
+
+Backlinks
+  nodes that link to this node
+References
+  nodes that reference this node
+Unlinked reference
+  nodes that contain text that match the nodes title/alias but are not linked
+
+
+#+begin_src emacs-lisp
+  (setq org-roam-mode-sections
+      (list #'org-roam-backlinks-section
+            #'org-roam-reflinks-section
+            ;; #'org-roam-unlinked-references-section
+            ))
+#+end_src
+
+** Configure org-roam buffer display
+
+#+begin_src emacs-lisp
+  (add-to-list 'display-buffer-alist
+             '("\\*org-roam\\*"
+               (display-buffer-in-direction)
+               (direction . right)
+               (window-width . 0.33)
+               (window-height . fit-window-to-buffer)))
+#+end_src
+
+* Titles and Aliases
+
+each node has a single title
+#+title
+
+aliases, alternative name
+
+#+begin_src org
+  * Artificial Intelligence
+:PROPERTIES:
+:ROAM_ALIASES: AI
+:END:
+#+end_src
+
+~org-roam-alias-add~  add alias to node
+
+~org-roam-alias-remove~ remove an alias from node
+
+* Tags
+#+filetags
+
+* Refs
+These keys allow references to the key to show up in the Org-roam buffer.
+
+For example, a node for a website may use the URL as the ref
+
+so like websites
+
+#+begin_src
+  * Google
+:PROPERTIES:
+:ROAM_REFS: https://www.google.com/
+:END:
+#+end_src
+
+~org-roam-ref-add~  add a ref
+~org-roam-ref-remove~ remove ref

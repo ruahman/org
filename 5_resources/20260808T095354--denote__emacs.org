@@ -1,0 +1,216 @@
+#+title:      denote
+#+date:       [2026-08-08 Sat 09:53]
+#+filetags:   :emacs:
+#+identifier: 20260808T095354
+
+Simple notes for emacs with an efficient file-naming scheme
+
+* Sample Configuration
+
+a simple configuration
+
+#+begin_src emacs-lisp
+(use-package denote
+  :ensure t
+  :hook (dired-mode . denote-dired-mode)
+  :bind
+  (("C-c n n" . denote)
+   ("C-c n r" . denote-rename-file)
+   ("C-c n l" . denote-link)
+   ("C-c n b" . denote-backlinks)
+   ("C-c n d" . denote-dired)
+   ("C-c n g" . denote-grep))
+  :config
+  (setq denote-directory (expand-file-name "~/Documents/notes/"))
+
+  ;; Automatically rename Denote buffers when opening them so that
+  ;; instead of their long file name they have, for example, a literal
+  ;; "[D]" followed by the file's title.  Read the docstring of
+  ;; `denote-rename-buffer-format' for how to modify this.
+  (denote-rename-buffer-mode 1))
+#+end_src
+
+
+* more comprehensive Configuration
+
+#+begin_src emacs-lisp
+(use-package denote
+  :ensure t
+  :hook
+  (;; If you use plain text files (.txt), then you want to make the
+   ;; Denote links clickable (Org mode and Markdown mode render links
+   ;; as buttons right away and provide commands to open them)
+   (text-mode . denote-fontify-links-mode)
+   ;; Apply colours to Denote names in Dired.  This applies to all
+   ;; directories.  Check `denote-dired-directories' for the specific
+   ;; directories you may prefer instead.  Then, instead of
+   ;; `denote-dired-mode', use `denote-dired-mode-in-directories'.
+   (dired-mode . denote-dired-mode))
+  :bind
+  ;; Denote DOES NOT define any key bindings.  This is for the user to
+  ;; decide.  For example:
+  ( :map global-map
+    ("C-c n n" . denote)
+    ("C-c n d" . denote-dired)
+    ("C-c n g" . denote-grep)
+    ;; If you intend to use Denote with a variety of file types, it is
+    ;; easier to bind the link-related commands to the `global-map', as
+    ;; shown here.  Otherwise follow the same pattern for `org-mode-map',
+    ;; `markdown-mode-map', and/or `text-mode-map'.
+    ("C-c n l" . denote-link)
+    ("C-c n L" . denote-add-links)
+    ("C-c n b" . denote-backlinks)
+    ("C-c n q c" . denote-query-contents-link) ; create link that triggers a grep
+    ("C-c n q f" . denote-query-filenames-link) ; create link that triggers a dired
+    ;; Note that `denote-rename-file' can work from any context, not just
+    ;; Dired bufffers.  That is why we bind it here to the `global-map'.
+    ("C-c n r" . denote-rename-file)
+    ("C-c n R" . denote-rename-file-using-front-matter)
+
+    ;; Key bindings specifically for Dired.
+    :map dired-mode-map
+    ("C-c C-d C-i" . denote-dired-link-marked-notes)
+    ("C-c C-d C-r" . denote-dired-rename-files)
+    ("C-c C-d C-k" . denote-dired-rename-marked-files-with-keywords)
+    ("C-c C-d C-R" . denote-dired-rename-marked-files-using-front-matter))
+
+  :config
+  ;; Remember to check the docstring of each of those variables.
+  (setq denote-directory (expand-file-name "~/Documents/notes/"))
+  (setq denote-save-buffers nil)
+  (setq denote-known-keywords '("emacs" "philosophy" "politics" "economics"))
+  (setq denote-infer-keywords t)
+  (setq denote-sort-keywords t)
+  (setq denote-prompts '(title keywords))
+  (setq denote-excluded-directories-regexp nil)
+  (setq denote-keywords-to-not-infer-regexp nil)
+  (setq denote-rename-confirmations '(rewrite-front-matter modify-file-name))
+
+  ;; Pick dates, where relevant, with Org's advanced interface:
+  (setq denote-date-prompt-use-org-read-date t)
+
+  ;; Automatically rename Denote buffers using the `denote-rename-buffer-format'.
+  (denote-rename-buffer-mode 1))
+#+end_src
+
+
+* Get started with Denote
+
+here is a big picture on how you can get started with Denote
+
+1. Create new text files with ~M-x denote~
+2. Rename any file with ~M-x denote-rename-file~
+3. Link to another Denote file, ~M-x denote-line~
+4. view backlinks, ~M-x denote-backlink~
+5. to search directly in the content of your files, ~M-x denote-grep~
+
+
+
+* Overview
+
+Denote aims to be a simple note-taking and file-naming tool for Emacs, using a file naming schema
+
+#+begin_src bash
+  20240322T131856--some-title__topic1_topic2.org
+#+end_src
+
+* Points of entry
+
+** Standard note creationg
+
+the ~denote~ command
+
+*** denote-directory
+
+denote needs a dedicated directory to store the files it creates so that link and searching function know where to look
+
+*** denote-save-buffers option
+
+controls whether commands that create new notes or rename save the buffer afterwards
+
+*** Create a note with region's content
+
+the command ~denote-region~ takes the contents of active region and then calls the ~denote~ command
+
+*** Open an existing note or create it if missing
+
+~denote-open-or-create~
+
+*** Maintain separate directory silos for notes
+
+the usualy the user will have just one place to store notes
+
+however it is possible to maintain separate and unrelated directories
+
+to create silos, ~.dir-locals.el~ must be created in disired directory with the following contents
+
+#+begin_src emacs-lisp
+  ((nil . ((denote-directory . "/path/to/silo/"))))
+#+end_src
+
+when inside the directory that contains ~.dir-locals.el~ all Denote commands/functions will use the silo as point of reference
+
+*** Create a controlled vocabulary for keywords
+
+Denote has two ways to know keywords: the predefined list setup in configuration ~denote-known-keywords~
+
+#+begin_src emacs-lisp
+  ;; infer keywords from files
+  (setq denote-infer-keywords 1)
+
+  ;; Define the list of keywords.  Each keyword is a string.
+  (setq denote-known-keywords (list "politics" "economics" "emacs" "philosophy"))
+#+end_src
+
+** Renaming files
+
+Denote provides commands to rename files and update their front-matter
+
+*** Rename a single file
+
+~denote-rename-file~ renames file and updates front-matter
+
+*** Rename a single file based on its front-matter
+
+~denote-rename-file-using-front-matter~  rename file based on front-matter of note
+
+** Linking notes
+
+Denote offers commands for linking between notes
+
+there are two types of notes supported by denote: hyperlink type
+
+*Direct links* : a direct link points to a file
+
+*Query links* : a query result of links????
+
+*** Add a single direct link
+
+~denote-link~
+
+*** Insert links to all files matching a query
+
+~denote-add-links~ take a query that matches it against file names.
+it then creates a list of links
+
+*** Insert links from marked files in Dired
+
+~denote-link-dired-marked-notes~ is similar to ~denote-add-links~ in that it inserts in the buffer a list of links.
+though instead of reading a regular expression, it lets the user mark files in Dired and link to them.
+if there are multiple note open a minibuffer will ask to select one
+
+~denote-link-dired-marked-notes~ is meant to be used from a dired buffer
+
+*** The backlinks buffer
+
+~denote-backlinks~ produces a buffer which displays backlinks to the current note
+
+*** metanotes
+
+a meta note is an entry that links to other notes.  kinda like an index
+
+the commands ~denote-add-links~, and ~denote-link-dired-marked-notes~ are suited for this task
+
+** Use denote-grep to search inside files
+
+~denote-grep~ searches across all file in denote directory
