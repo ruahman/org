@@ -1,0 +1,54 @@
+#+title:      dired
+#+date:       [2026-08-08 Sat 14:21]
+#+filetags:   :emacs:
+#+identifier: 20260808T142134
+
+directory editor => dired
+
+~C-x C-j~ : open directory for current buffer
+
+~C-x d~ : open directory
+
+~Return~ : open file
+
+~o~ : open file in new window
+
+~C-o~ : open file in new window but stay in dired
+
+~^~ : go up one level
+
+~C-s~ : isearch dired buffer
+
+~C-r~ : reverse isearch
+
+~i~ : list directory in current dired buffer
+
+~d~ : flag files for deletion
+
+~D~ : delete current file or marked files
+
+~u~ : undo flag
+
+~x~ : excute files flaged for deletion
+
+~% d~ : flag for delete with regex
+
+~m~ : mark file
+
+~% m~ : mark with regex
+
+~% g~ : mark contents of file not just file name
+
+~t~ : toggle marked and unmarked files
+
+~+~ : create directory
+
+~c~ : copy
+
+~r~ : rename
+
+~C~ : copy file
+
+~R~ : rename file
+
+~g~ : refresh dired buffer

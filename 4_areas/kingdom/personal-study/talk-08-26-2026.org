@@ -2,7 +2,7 @@
 :ID:       d6a9fbf9-ba02-4697-834a-e8b90c6ac9f8
 :END:
 #+title: What is the meaning to Jeremiah 29:11
-#+filetags: :jeremiah-29_11:
+#+filetags: :jeremiah-29_11:talk:
 
 What is the meaning to Jeremiah 29:11
 
