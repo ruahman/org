@@ -1,0 +1,12 @@
+#+title:      emacs
+#+date:       [2026-08-09 Sun 20:40]
+#+filetags:   :emacs:meta:
+#+identifier: 20260809T204019
+
+- [[denote:20260809T203544][commands]]
+- [[denote:20260801T212600][org-mode]]
+- [[denote:20260808T095354][denote]]
+- [[denote:20260808T125636][org-roam]]
+- [[denote:20260808T142134][dired]]
+- [[denote:20260809T202111][project.el]]
+

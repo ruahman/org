@@ -37,6 +37,10 @@ directory editor => dired
 
 ~% m~ : mark with regex
 
+~k~ : hide marked items
+
+~g~ : refresh dired and unhide items
+
 ~% g~ : mark contents of file not just file name
 
 ~t~ : toggle marked and unmarked files
@@ -52,3 +56,5 @@ directory editor => dired
 ~R~ : rename file
 
 ~g~ : refresh dired buffer
+
+~C-x p f~ : project find file
