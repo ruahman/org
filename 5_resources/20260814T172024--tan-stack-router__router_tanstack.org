@@ -1,0 +1,15 @@
+#+title:      tan-stack-router
+#+date:       [2026-08-14 Fri 17:20]
+#+filetags:   :router:tanstack:
+#+identifier: 20260814T172024
+
+define routes once,
+
+file-based routing
+
+* quick start
+
+#+begin_src bash
+  npx @tanstack/cli create --router-only
+#+end_src
+

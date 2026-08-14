@@ -1,0 +1,15 @@
+#+title:      tan-stack-start
+#+date:       [2026-08-14 Fri 16:49]
+#+filetags:   :start:tanstack:
+#+identifier: 20260814T164911
+
+a full-stack React framework powered by TanStack router.
+
+provides a SSR, streaming, server functions, client/server builds, and more
+
+* Dependencies
+
+TanStack Start is build on two key technologies
+
+- TanStack Router
+- Vite

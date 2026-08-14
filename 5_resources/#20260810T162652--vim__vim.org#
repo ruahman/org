@@ -1,0 +1,51 @@
+#+title:      vim
+#+date:       [2026-08-10 Mon 16:26]
+#+filetags:   :vim:
+#+identifier: 20260810T162652
+
+| keys        | command                      | description                 |
+|-------------+------------------------------+-----------------------------|
+| d i {       | delete in {                  |                             |
+| :q          | quite                        | quite                       |
+| :q!         | force quite                  | force quite                 |
+| :!<command> | terminal command             | run terminal command in vim |
+| i           | insert                       | insert mode                 |
+| a           | append                       | insert mode after char      |
+| o           | open line bellow             | open new line below         |
+| O           | open line above              | open line above cursor      |
+| I           | insert beginning of line     |                             |
+| A           | append at end of line        |                             |
+| 5j          | 5 spaces down                |                             |
+| h,j,k,l     | arrow keys                   |                             |
+| u           | undo                         |                             |
+| C-r         | redo                         |                             |
+| y           | yank                         |                             |
+| p           | past bellow                  |                             |
+| P           | past above                   |                             |
+| d           | delete                       |                             |
+| dd          | delete line                  |                             |
+| yy          | yank whole line              |                             |
+| c           | change                       |                             |
+| cc          | change line                  |                             |
+| r           | replace char                 |                             |
+| w           | word                         |                             |
+| b           | back                         |                             |
+| dw          | delete word                  |                             |
+| diw         | delete in word               |                             |
+| ciw         | chage in word                |                             |
+| e           | end of word                  |                             |
+| d0          | delete till begining of line |                             |
+| d$          | delete till end of line      |                             |
+| ci"         | change inside " "            |                             |
+| %           | jump to matching symbol      |                             |
+| gg          | begin of file                |                             |
+| G           | end of file                  |                             |
+| m<char>     | mark                         | mark spot to jump           |
+| '<char>     | jump                         | jump to spot                |
+| zz          | center                       | center cursor               |
+| "<reg>y     | yank to register             |                             |
+| "<reg>p     | past from register           |                             |
+| q<macro>    | start record for macro       |                             |
+| q           | finish record for macro      |                             |
+| @<macro>    | run macro                    |                             |
+| @@          | repeat last macro            |                             |

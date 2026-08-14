@@ -1,0 +1,21 @@
+#+title:      avalonia
+#+date:       [2026-08-14 Fri 17:27]
+#+filetags:   :dotnet:
+#+identifier: 20260814T172728
+
+build cross-platform desktop, mobile, and web apps with XAML and c#
+
+uses XAML for layout, c# for logic, and MVVM for structure.
+
+Unlike frameworks that wrap native controls. Avalonia draws its own UI with Skia,
+giving you pixel-identical rendering on every target.
+
+Skia by default,
+partnered with Google on Impeller
+Impeller uses precompiled shaders and a hardware-accelerated pipeline to eliminate jank and reduce frame times on GPU
+
+Rendering that scales
+
+A complete suite of UI controls
+ships with 70+ controls,
+covering everything from buttons, tabs, and menues

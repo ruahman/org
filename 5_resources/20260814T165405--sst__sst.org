@@ -1,0 +1,13 @@
+#+title:      SST
+#+date:       [2026-08-14 Fri 16:54]
+#+filetags:   :sst:
+#+identifier: 20260814T165405
+
+SST is a framework that makes it easy to build modern full-stack application on your own infrastructure.
+
+you entire app is defined in code - in a single =sst.config.ts= file.
+this include databases, buckets, queues, Stripe webhooks, etc
+
+* component
+
+you start by defining parts of your app, in code

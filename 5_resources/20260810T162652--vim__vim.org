@@ -1,0 +1,5 @@
+#+title:      vim
+#+date:       [2026-08-10 Mon 16:26]
+#+filetags:   :vim:
+#+identifier: 20260810T162652
+
