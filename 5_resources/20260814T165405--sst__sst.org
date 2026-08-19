@@ -8,6 +8,14 @@ SST is a framework that makes it easy to build modern full-stack application on 
 you entire app is defined in code - in a single =sst.config.ts= file.
 this include databases, buckets, queues, Stripe webhooks, etc
 
+is a way to have infrastructure as code
+define you infrastructure in a single config file and deploy where you need to deploy
+based on a standard that uses terraform
+
+there are two way you can deploy
+serverless
+containers
+
 * component
 
 you start by defining parts of your app, in code
