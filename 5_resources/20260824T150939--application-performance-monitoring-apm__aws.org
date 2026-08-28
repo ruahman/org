@@ -1,0 +1,16 @@
+#+title:      Application Performance Monitoring (APM)
+#+date:       [2026-08-24 Mon 15:09]
+#+filetags:   :aws:
+#+identifier: 20260824T150939
+
+CloudWatch Application Signals provides application performance monitoring (APM)
+
+Start collecting application metrics and traces
+
+* Application Signals
+Cloudwatch Application Signals helps you monitor and imporove application performance on AWS.
+it automatically collects data from you applications running on services like EC2, and Lambda.
+
+you can use CloudWatch Application Signals for the following:
+
+- monitor application health

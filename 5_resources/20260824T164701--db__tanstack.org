@@ -1,0 +1,22 @@
+#+title:      DB
+#+date:       [2026-08-24 Mon 16:47]
+#+filetags:   :tanstack:
+#+identifier: 20260824T164701
+
+reactive client store
+
+extends Tanstack query with collections,
+live queries???
+optomistic mutations???
+
+tanstack query + client-side db
+
+local first
+
+query engine
+
+electric SQL
+- sync postgres to multiple clients
+- read only
+
+thing of collection as like a table???

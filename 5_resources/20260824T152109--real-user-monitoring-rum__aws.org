@@ -1,0 +1,35 @@
+#+title:      Real User Monitoring (RUM)
+#+date:       [2026-08-24 Mon 15:21]
+#+filetags:   :aws:
+#+identifier: 20260824T152109
+
+collect and view client-side data about your web and mobile apps
+
+for web applications, you can analyze page load times, client-side errors, and user behavior.
+
+you can use the collected data to quickly identify and debug client-side performance issues.
+
+To use RUM, you create an app monitor.
+RUM generates a code snippet that you can insert into your application.
+
+The RUM client captures data from a percentage of your application's user sessions.
+you can specify what percentage of user sessions to gather data from.
+
+Mobile RUM uses the OpenTelemetry Protocol (OTLP) to send telemetry data to a dedicated OTLP endpoint.
+
+in order to manage CloudWatch RUM, you must have the AmazonCloudWatchRUMRullAccess policy.
+
+Authorize your web application to send data to AWS
+
+Use Amazon Cognito and let CloudWatch RUM create a new Amazon Cognito identity pool for the application.
+the identity pool will contain an unauthenticated identity.  this allows the cloudwatch rum web client
+to send data to CloudWatch RUM without authenticating the user of the application
+
+to start using CloudWatch RUM with your application, you create an app monitor.
+when the app monitor is created, RUM generates a code snippet for your to past into your application.
+the snippet pulls in the RUM client code.  The RUM client captures data from your application user sessions and sends it to RUM
+
+Configure RUM data collection, specify whether you want the app monitor to collect each of the following:
+- performance telemetry: page load and resource load times
+- javascript errors: collect information about unhandled javascript errors raised by your application
+- http errors: collects information about HTTP errors by your application

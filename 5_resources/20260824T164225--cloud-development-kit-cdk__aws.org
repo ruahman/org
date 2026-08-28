@@ -1,0 +1,95 @@
+#+title:      Cloud Development Kit (CDK)
+#+date:       [2026-08-24 Mon 16:42]
+#+filetags:   :aws:
+#+identifier: 20260824T164225
+
+
+cloud development kit
+
+used for infrastructure
+
+infrastructure as code
+
+JavaScript, typescript, python, Golang
+
+creating resources in AWS console does not really scale.
+
+teraform or pulomi
+
+#+begin_src typescript
+  const table = new TableV2(this, 'MyTable', {
+      ...
+  });
+
+  const bucket = new Bucket(this, 'MyBucket', {
+      ...
+  });
+
+  const lambdaFunction = new Function(this, 'MyLambdaFunction', {
+      runtime: Runtime.NODEJS_20_X,
+      handler: 'index.handler',
+      code: Code.fromAsset('../lambda'),
+  });
+
+  table.grantReadWriteData(lambdaFunction);
+  bucket.grantReadWrite(lambdaFunction);
+#+end_src
+
+CDK compiles to CloudFomation code
+
+need CDK CLI tool
+
+cdk deploy
+validate your cdk code
+generate cloudformation code
+deployment
+
+cdk synth
+just does compilation
+
+you can setup Github actions to deploy
+
+construct
+a building block in aws
+
+level 1
+single resource
+CFN Resources (Cloud Foundation Resource)
+lowest level construct
+give the most power
+avoid 90%
+it's basically a Cloud Formation resource
+
+level 2
+curated constructs
+single resource
+medium level
+sensible defaults
+most commonly used
+
+level 3
+multiple resources
+patterns
+they don't directly represent on resource but multiple
+
+Stacks
+containers of constructs
+a way to organize your resources
+
+App
+the collection of the different stacks
+
+cdk depends on aws cli
+
+you can setup unit tests
+
+cdk bootstrap
+
+checkout CloudFormation in aws console
+
+* installation
+need aws cli
+need nodejs
+npm install -g aws-cdk
+
+

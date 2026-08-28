@@ -1,0 +1,199 @@
+#+title:      query
+#+date:       [2026-08-24 Mon 12:02]
+#+filetags:   :tanstack:
+#+identifier: 20260824T120222
+
+
+* install
+#+begin_src bash
+  npm install @tanstack/react-query
+  npm install @tanstack/react-query-devtools
+#+end_src
+dev tools provide a visual slider at bottom for debugging
+
+* tanstack query
+this is the old way of doing network calls in react
+#+begin_src typescript
+  const [books, setBooks] = useState<Book[]>([])
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setIsError(false);
+    setError(null);
+
+    const fetchBooks = async () => {
+      try {
+  	const rep = await fetch('...');
+  	if(!rep.ok) {
+  	    throw new Error(...)
+  	}
+  	const data = await rep.json();
+  	setBooks(data);
+      } catch (err) {
+  	setIsError(true);
+  	setError(...);
+      }
+      setIsLoading(false);
+
+    };
+    fetchBooks();
+
+  });
+
+#+end_src
+
+
+you need to setup the QueryClientProvider in you project
+#+begin_src typescript
+  import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
+  import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
+  const queryClient = QueryClient();
+
+  <QueryClientProvider client={queryClient}>
+      ....
+  </QueryClientProvider>
+#+end_src
+
+
+now use tanstack in page you want.
+
+#+begin_src typescript
+  import { useQuery } from '@tanstack/react-query'
+
+  const { data, isError, isLoading, error, refetch } =  useQuery<Book[]>({
+      //enabled: // don't run this query untill true
+      queryKey: ['books'], // key for the cache
+      // staleTime: 1000, // amount of time before fetching a new one
+      // gcTime: 0, // clear cache, how long before cache is cleared
+      queryFn: async () => {
+  	const resp = await fetch(...);
+  	if (!resp.ok) throw new Error(...)
+  	return resp.json();
+      }
+  })
+
+  if(isLoading) {
+      return "is loading html"
+  }
+
+  if(isError) {
+      return "errror html"
+  }
+
+  return "result html";
+#+end_src
+
+you don't need useEffect
+
+the second time you call this data will return the cached while fetching from background
+
+the refetch function allows you to refetch the data
+
+
+* example from tanstack.com
+
+#+begin_src typescript
+  import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
+
+export default function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Example />
+    </QueryClientProvider>
+  )
+}
+
+function Example() {
+  const { isPending, error, data } = useQuery({
+    queryKey: ['repoData'],
+    queryFn: () =>
+      fetch('https://api.github.com/repos/TanStack/query').then((res) =>
+        res.json(),
+      ),
+  })
+
+  if (isPending) return 'Loading...'
+
+  if (error) return 'An error has occurred: ' + error.message
+
+  return (
+    <div>
+      <h1>{data.name}</h1>
+      <p>{data.description}</p>
+      <strong> {data.subscribers_count}</strong>{' '}
+      <strong> {data.stargazers_count}</strong>{' '}
+      <strong> {data.forks_count}</strong>
+    </div>
+  )
+}
+#+end_src
+
+* useMutatation
+
+for mutating data
+
+queries are more used
+
+#+begin_src typescript
+  const queryClient = useQueryClient(); // get query client so that we can invalidate the cache 
+
+  const { status, error, mutate } = useMutation({
+          mutationFn: createPost,
+          onSuccess: newPost => {
+      	queryClient.invalidateQueries(["posts"]) // invalidate query so that cache is cleared
+      	queryClient.setQueryData(["posts", newPost.id], newPost) // set post cache so you don't need to fetch it
+          },
+      })
+
+      mutate({
+          title: ...,
+          body: ...
+      })
+#+end_src
+
+onSuccess runs after a successful mutation
+
+create a mutate function that you can call later
+
+#+begin_src typescript
+  const mutation = useMutation({
+      mutationFn: (newUser) => {
+  	return fetch('/api/users', {
+  	    method: 'POST',
+  	    body: JSON.stringify(newUser)
+  	})
+      }
+  })
+  ...
+  mutation.mutate(userData)
+#+end_src
+
+* useSuspenseQuery
+
+#+begin_src typescript
+  const { data } = useSuspenseQuery({...})
+#+end_src
+
+data is never undefined
+
+* useQueries
+
+#+begin_src typescript
+  const [query1, query2, query3] = useQueries({
+      queries: [
+  	...
+      ],
+  });
+#+end_src
+
+so you can have multiple quiries

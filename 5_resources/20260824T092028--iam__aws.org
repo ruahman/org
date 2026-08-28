@@ -1,0 +1,65 @@
+#+title:      IAM
+#+date:       [2026-08-24 Mon 09:20]
+#+filetags:   :aws:
+#+identifier: 20260824T092028
+
+Identity and Access Management (IAM)
+
+a service used to securely control access to your AWS resources.
+
+Controls authentication (who)
+and authorization (what they can do)
+
+1. Users
+   you can give a user programmatic access (Access key) for CLI and API 
+   you can give console access (password)
+
+   you should always work in a user account and not the root account
+
+   specific users
+   password or access key
+   
+2. Groups
+   a collection of IAM users
+   
+3. Roles
+   Similar to a user (an identity with permissions)
+   does not have credentials (password or keys)
+
+   you can assign resources roles
+
+   a collection of policies
+
+   roles are uses for AWS resources like lambda and ec2
+   
+4. Policies
+   Who can do what to which resources and when
+
+   #+begin_src json
+     {
+       "Statement": [
+         {
+           "Effect": "allow or deny",
+           "Action": ["actions for resource"],
+           "Resource": "resource",
+           "Condition": {
+             "condition": {
+     
+             } 
+           } 
+         }
+       ]
+     }
+   #+end_src
+
+   you attach you polices to an a identity: user, group or role
+
+Identities: Users, Groups, and Roles
+
+Access auditing using AWS CloudTrail
+
+4 key concepts: Users, Groups, Roles, and Policies
+
+lockdown you root users with MFA (Multi Factor Authentication)
+
+IAM is the bouncer for every service request

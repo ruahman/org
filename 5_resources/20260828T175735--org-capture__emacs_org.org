@@ -1,0 +1,48 @@
+#+title:      org-capture
+#+date:       [2026-08-28 Fri 17:57]
+#+filetags:   :emacs:org:
+#+identifier: 20260828T175735
+
+lets you capture content from anywhere
+
+configurable templates
+
+stored in org files
+
+#+begin_src elisp
+  ;; C-c c for capture
+  (define-key global-map "\C-cc" 'org-capture)
+  ;; force UTF-8
+  (setq org-export-coding-system 'utf-8)
+
+  ;; configure org-capture templates
+  (setq org-capture-templates
+        '(("t"  ; hotkey
+  	 "Todo list item" ; name
+  	 entry  ; type
+  	 ; specify both the file and headline to insert
+  	 (file+headline org-default-notes-file "Tasks")
+  	 "* TODO %?\n %i\n %a") ;template'
+  	("j" "Journal entry"
+  	 entry (file+datetree "~/org/journal.org")
+  	 (file "~/.emacs.d/org-templates/journal.orgcaptmp"))
+  	("d" "Demo template" entry (file+headline "demo.org" "Our first heading") ; specify both file and headline to insert
+  	 "* DEMO TEXT %?") ; template
+  	("p" "Prompt for input" entry (file+headline "demo.org" "promts") ; specify both file and healine to insert
+  	 "* %^{Please write here}  %?") ; template
+  	("o" "Options in prompt" entry (file+headline "demo.org" "options") ; specify both file and healine to insert
+  	 "* %^{Please write here|ONE|TWO|THREE}  %?") ; template
+  	("t" "taks with a date" entry (file+headline "demo.org" "time") ; specify both file and healine to insert
+  	 "* %^{Please write here|ONE|TWO|THREE}\n %t\n %i %?") ; template
+  	))
+#+end_src
+relative to org directory
+%? place cursor at location
+
+
+Capute template placeholders
+
+%U : update timestamp
+%^{Name} : Promp for something
+%i : insert region that you have highlighted
+%? : cursor end here

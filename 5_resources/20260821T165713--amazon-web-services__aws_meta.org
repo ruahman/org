@@ -1,0 +1,19 @@
+#+title:      Amazon Web Services
+#+date:       [2026-08-21 Fri 16:57]
+#+filetags:   :aws:meta:
+#+identifier: 20260821T165713
+
+Pay what you use
+
+Compute: EC2 (Elastic Compute Cloud)
+
+DATABASE: RDS (Relational Database Service) and DynamoDB
+
+Storage: S3 (Simple Storage Service)
+
+Networking: VPC (Virtual Private Cloud), Route 53
+
+Security: IAM (Identity and Access Management)
+
+
+
