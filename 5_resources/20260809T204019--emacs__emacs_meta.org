@@ -9,4 +9,4 @@
 - [[denote:20260808T125636][org-roam]]
 - [[denote:20260808T142134][dired]]
 - [[denote:20260809T202111][project.el]]
-
+- [[denote:20260828T175735][org-capture]]

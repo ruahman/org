@@ -3,3 +3,85 @@
 #+filetags:   :vim:
 #+identifier: 20260810T162652
 
+
+| keys         | command                                   | description     |
+|--------------+-------------------------------------------+-----------------|
+| d i {        | delete                                    | delete inside { |
+| :q           | quite                                     |                 |
+| :q!          | force quite                               |                 |
+| :!<cmd>      | run command                               |                 |
+| i            | insert                                    |                 |
+| a            | append                                    |                 |
+| o            | open new line bellow                      |                 |
+| O            | open new line above                       |                 |
+| I            | insert in begining of line                |                 |
+| A            | append at end of line                     |                 |
+| 5j           | five spaces down                          |                 |
+| hjkl         | left, up, down, right                     |                 |
+| u            | undo                                      |                 |
+| C+r          | redo                                      |                 |
+| y            | yank                                      |                 |
+| p            | past bellow                               |                 |
+| P            | past above                                |                 |
+| d            | delete                                    |                 |
+| dd           | delete whole line                         |                 |
+| yy           | yank whole line                           |                 |
+| c            | change                                    |                 |
+| cc           | change line                               |                 |
+| r            | replace character                         |                 |
+| w            | move by word                              |                 |
+| b            | back by word                              |                 |
+| dw           | delete word                               |                 |
+| diw          | delete in word                            |                 |
+| ciw          | change in word                            |                 |
+| e            | end of word                               |                 |
+| d0           | delete till beging of line                |                 |
+| d$           | delete till end of line                   |                 |
+| ci"          | change inside ""                          |                 |
+| %            | jump to match symbol                      |                 |
+| gg           | begin of file                             |                 |
+| G            | end of file                               |                 |
+| m<char>      | save mark                                 |                 |
+| '<char>      | jump to mark                              |                 |
+| zz           | center cursor                             |                 |
+| "<num>y      | yank to register                          |                 |
+| "<num>p      | past from register                        |                 |
+| q<char>      | start macro                               |                 |
+| q            | finish macro                              |                 |
+| @<char>      | run macro                                 |                 |
+| <num>@<char> | repeat macro                              |                 |
+| @@           | repeat last macro                         |                 |
+| f<char>      | find char in line                         |                 |
+| t<char>      | find till char in line                    |                 |
+| ;            | repeat find forward                       |                 |
+| ,            | repeat find backward                      |                 |
+| .            | repeat change                             |                 |
+| >            | indent                                    |                 |
+| Ctrl + v     | block select                              |                 |
+| $            | end of line                               |                 |
+| 0            | start of line                             |                 |
+| ^            | first none blank char                     |                 |
+| g_           | last none blank char                      |                 |
+| Ctrl + f     | move screen forward                       |                 |
+| Ctrl + b     | move screen backward                      |                 |
+| Ctrl + u     | move up half a screen                     |                 |
+| Ctrl + d     | move down half a screen                   |                 |
+| zt           | move screen till cursor is on top         |                 |
+| zz           | move move screen till cursor is in middle |                 |
+| zb           | move cursor till cursor is at bottom      |                 |
+| Ctrl + e     | move down                                 |                 |
+| Ctrl + y     | move up                                   |                 |
+| Ctrl + o     | go back in jump list                      |                 |
+| Ctrl + i     | go forward in jump list                   |                 |
+| H            | go to upper                               |                 |
+| M            | go to middle                              |                 |
+| L            | go to lower                               |                 |
+| *            | do search on current word                 |                 |
+| n            | search forward                            |                 |
+| N            | search backward                           |                 |
+| ysiw"        | surrond current word with "               |                 |
+| cs"'         | change " to '                             |                 |
+| ds"          | delete "                                  |                 |
+| s"           | souround selection with "                 |                 |
+| dgn          | delete current selection and go to next   |                 |
+| cgn          | change current selection and go to next   |                 |
