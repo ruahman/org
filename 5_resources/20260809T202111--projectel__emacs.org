@@ -3,3 +3,17 @@
 #+filetags:   :emacs:
 #+identifier: 20260809T202111
 
+competitor of projectile
+
+project tasks
+
+C-x p p  : select project / project switch
+
+projects are registered in projects.el
+
+C-x p f : find file in project
+
+C-x p D : show dired for project
+
+C-x p d : find directory in project
+
