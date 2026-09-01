@@ -7,9 +7,139 @@ a full-stack React framework powered by TanStack router.
 
 provides a SSR, streaming, server functions, client/server builds, and more
 
+SEO
+
+SSR, middleware, server functions, streaming
+
+90% comes down to the router
+
 * Dependencies
 
 TanStack Start is build on two key technologies
 
 - TanStack Router
 - Vite
+
+
+
+* setup
+#+begin_src bash
+  npm @tanstack/cli create <my-app>
+#+end_src
+
+
+* route
+
+the routes folder will contain all of our pages
+
+* __root.tsx
+
+has our main layout
+
+* index.tsx
+our home page
+
+
+* product.$id.tsx
+
+#+begin_src typescript
+  import { createFileRoute } from '@tanstack/react-router'
+
+  export const Route = createFileRoute('/product/$id')({
+      component: RouteComponent,
+  })
+
+  function RouteComponent() {
+      const { id } = Route.useParams()
+
+      return <div>Hell {id}</div>
+
+  }
+#+end_src
+
+if you want to link it
+#+begin_src typescript
+  <Link to={'/product/$id'} params={{id:product.id}}>
+      {product.name}
+  </Link>
+#+end_src
+- params make it typesafe
+
+
+
+* router.tsx
+this controlls the router for tanstack start
+
+* loader function
+
+load data from a database
+#+begin_src typescript
+  export const Route = createFileRoute('/products')({
+      component: RouteComponent,
+      loader: async () => {
+  	const products = await getProducts()
+  	return products;
+      }
+  })
+
+  function RouteComponent() {
+      const {products} = Route.useLoaderData()
+
+      return <div> {products} </div>
+  }
+#+end_src
+
+* isomorphism / code execution pattern
+
+you code executes on both the server and the client
+
+TanStack Start runs in two environments
+
+** Server
+Node.js runtime with access to file system, database, environment variables
+
+Durring SSR : inital page render on server
+
+API requests
+
+** Client
+browser runtime, access to DOM, localStorage
+
+after hydration - client takes over after initial server render
+
+navigation - route loaders run client-side during navigation
+
+let the client takover once website is loaded
+
+* Server functions
+
+create a function that only runs on the server
+
+#+begin_src typescript
+  import { createServerFn } from '@tanstack/reac-start'
+
+  export const getData = createServerFn().handler(async () => {
+      return { message: 'Hello from server!' }
+  })
+#+end_src
+
+* API Methods
+
+#+begin_src typescript
+  import { createFileRoute } from '@tanstack/react-router'
+
+  export const Route = createFileRoute('/api/product')({
+      server: {
+  	handlers: {
+  	    GET: async () => {
+  		return Response.json({ok:true})
+  	    }
+  	    POST: async ({request}) = {
+  		const body = await request.json()
+
+  		return new Response(JSON.stirngfy({...});
+  	    }
+  	}
+      }
+  })
+#+end_src
