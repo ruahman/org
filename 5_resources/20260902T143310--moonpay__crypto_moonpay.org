@@ -1,0 +1,119 @@
+#+title:      moonpay
+#+date:       [2026-09-02 Wed 14:33]
+#+filetags:   :crypto:moonpay:
+#+identifier: 20260902T143310
+
+stable coins are dollars on a blockchain
+
+spend stable coins with master card.
+
+* what is MoonPay?
+MoonPay is a financial technology company that builds payment infrastructure for crypto.
+it offers simple ways to buy, sell, and swap cryptocurrencies using a wide range of payment methods
+-- including cards, local banks, and contactless options
+
+what is contactless
+Contactless is a payment method that allows you to complete a transaction without physically inserting, swiping, or entering card details
+manually into a terminal or form.  instead payment data is trasmitted wirelessly using NFC (Near Field Communication).
+
+Apple Pay, Google Pay, etc...
+
+in context to moonpay you can buy crypto using services like Apple Pay or Google pay without needing to fill in information.
+
+money should move at the speed of the internet
+
+stable coins already move more money than visa and mastercard combined.
+
+fiat to crypto or crpyto to fiat without friction
+
+tokenization is turning any asset to software
+dollars,
+treasuries,
+commodities
+stocks
+realestate
+
+once assets are onchain you need to seemlessly trade and swap them
+
+business are not hooked up to receive payments
+
+you can by crypto without creating an exchange account
+technically it's non-custodial it doesn't store your crypto
+
+fee's are higher than traditional exchanges
+
+quick and simple
+non-custodial model
+fees can be steep
+
+good for quickly getting crypto
+
+but if you a traider then it's better to get a exchange account
+
+a secure gateway into the world of crypto currency
+
+it is not an exchange where you swap crypto
+it for swaping your dollars for crypto or digital assets
+
+on-ramp: fiat to crypto
+
+off-ramp : cash out or swap your crypto
+
+your passport to crypto
+
+Moonpay is non custodial
+
+encrypted using AES-256, military grad
+
+PCI compliant
+
+not good for hardcore traders
+built for basic buying and selling
+
+check if region is supported
+
+some states do not allow like New York and Texas
+
+
+
+* buy
+buy crypto instantly with Apple Pay, Google Pay or your credit card.
+Venmo and bank transfers are also available in select regions
+
+banks is 1% fee
+cards is 4% fee
+
+** How to buy
+download app and setup moonpay account.
+
+you provide your crypto address to pay to.
+
+provide bank details or card details
+
+* sell
+sell crypto instantly at the best available rate.
+directly to your bank, card or MoonPay Balance
+
+* Send & Receive
+Send and receive crypto instantly with MoonTags
+no wallet address, no chains
+
+* MoonPay balance
+
+add fund to into your MoonPay Balance.
+Once you have topped up this balance, you can use those funds to purchase cryptocrurrency without incurring additional fees
+
+* MoonPay Developer Docs
+MoonPay lets you add fiat-to-crypto to your product without rebuilding payments, KYC, and compliance.
+
+https://dev.moonpay.com/
+
+** Hosted
+simpler to integrate
+
+a hosted on-ramp and off-ramp you embed in your app.
+
+** Developer Platform
+more flexible
+
+build your own on-ramp and off-ramp using MoonPay's APIs

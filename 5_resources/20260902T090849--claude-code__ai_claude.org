@@ -1,0 +1,95 @@
+#+title:      claude code
+#+date:       [2026-09-02 Wed 09:08]
+#+filetags:   :ai:claude:
+#+identifier: 20260902T090849
+
+* terminal setup
+~/terminal-setup~ : allows Shift + Enter for new line
+
+* init
+~/init~ : initialize a claude.md file
+
+scans project
+
+provide context to claude code
+
+~#~ : to memorize command in claude.md 
+
+* context
+
+~@path/to/file~ : you can add a file as context to claude code
+
+~/clear~ : clear context
+
+~/compact~ : compact the context and give it a summary
+
+
+*press ESC twice* : rewide to previous point in context
+
+* MCP
+
+allows claude code to communicate outside your code base
+
+Model Context Protocol
+
+communicates with a MCP server
+
+ex: PlayRight
+
+~claude mcp add context7 --scope project -- npx -y @upstash/context7-mcpclaude~
+
+~claude mcp add playwright npx @playwright/mcp@latest~
+
+~/mcp~ : show mcp servers
+
+* SKILLS
+
+ask claude to do certain things in a specific way
+
+* Github
+
+use Claude to review github pull requests
+
+automatically work on issues
+
+need github cli installed on your computer
+
+~/install-github~ : setup claude Github Actions for repo
+
+* tools
+
+claude code comes with built in tools like Bash, Read, Edit, grep, LS,  WebSearch, WebFetch, etc ...
+
+claude code knows when to use certain tools based on your instructions
+
+
+* plan
+
+Alt + Tab : cycle till you hit plan mode
+
+* extended thinking
+
+ask AI to think longer in implementing complex solutions
+
+put /thing to tell claude to think harder???
+
+* commands
+
+a slash command to you can give to claude code
+
+ex: create a component
+give instructions on how you want the component to be made.
+
+* subagents
+
+create a team in a project
+
+each subagent can be isolated and configured to work on a particular task
+
+ex: Unit Tester, Security Auditor, UX Reviewer
+
+- you can setup the UX Reviewer to use playright
+
+claude code and delegate tasks to subagents
+
+~/agents~ : start creating agents
