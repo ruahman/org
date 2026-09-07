@@ -1,0 +1,241 @@
+#+title:      breez-sdk
+#+date:       [2026-09-07 Mon 14:41]
+#+filetags:   :breez:spark:
+#+identifier: 20260907T144149
+
+the stable balance feature enable users to switch between bitcoin and a stablecoin, like USDB
+protecting it from bitcoin price volatility.
+
+On receive, sats are automatically converted to stablecoin.
+
+On send, the stablecoin is converted to bitcoin.
+
+When Stable balance is configured and activated,
+the SDK manages conversions in both directions using token conversion
+
+On receive - when you receive a payment (lighting, spark, or on-chain), the SDK converts the incomming sats to stable coin
+once your sats balance exceeds the configured threshold.
+
+On send - when you send a bitcoin payment and your sats balance is insufficient,
+the SDK converts USDB back to bitcoin to cover the payment.
+
+* configuration
+
+to enable stable balance, configure the *stable balance config* when initializing the SDK
+
+The SDK can convert Bitcoin to a stable token on receive and vice versa on send,
+#+begin_src typescript
+  const config = defaultConfig('mainnet')
+
+  // Enable stable balance with USDB conversion
+  config.stableBalanceConfig = {
+    tokens: [{
+      label: 'USDB',
+      tokenIdentifier: 'btkn1xgrvjwey5ngcagvap2dzzvsy4uk8ua9x69k82dwvt5e7ef9drm9qztux87'
+    }],
+    defaultActiveLabel: 'USDB'
+  }
+#+end_src
+
+you can set *threshold Sats* minimum sats to trigger automatic conversion
+
+* Switching Stable Balance mode
+
+you can activate, switch, or deactivate stable balance at runtime
+
+#+begin_src typescript
+  await sdk.updateUserSettings({
+    stableBalanceActiveLabel: { type: 'set', label: 'USDB' }
+  })
+  
+#+end_src
+- when activated, the SDK immediately converts any excess sats balance to the token
+
+to unset
+
+#+begin_src typescript
+  await sdk.updateUserSettings({
+    stableBalanceActiveLabel: { type: 'unset' }
+  })
+  
+#+end_src
+
+check the current mode
+#+begin_src typescript
+  const userSettings = await sdk.getUserSettings()
+  console.log(`User settings: ${JSON.stringify(userSettings)}`)
+  
+#+end_src
+
+* Sending payments with stable balance
+when your balance is held in a stablecoin, you can still send bitcoin payments.
+the SDK detects when there is not enough bitcoin balance and sets up token-to-bitcoin conversion for you
+1. if you have enought bitcoin not conversion is needed
+2. if you don't have enought bitcoin the SDK will converst some based on your conversion options
+
+
+
+* Sending entire balance
+you can send your entire balance, both token and bitcoin in a single payment
+
+the SDK converts all specified tokens to bitcoin and deducts payment fees from the total
+
+#+begin_src typescript
+  const paymentRequest = '<payment request>'
+  const tokenIdentifier = '<token identifier>'
+
+  const info = await sdk.getInfo({ ensureSynced: false })
+  const tokenBalance = info.tokenBalances.get(tokenIdentifier)
+  if (tokenBalance === undefined) {
+    throw new Error('Token balance not found')
+  }
+
+  const conversionOptions: ConversionOptions = {
+    conversionType: {
+      type: 'toBitcoin',
+      fromTokenIdentifier: tokenIdentifier
+    }
+  }
+  const feePolicy: FeePolicy = 'feesIncluded'
+
+  const prepareResponse = await sdk.prepareSendPayment({
+    paymentRequest: { type: 'input', input: paymentRequest },
+    amount: tokenBalance.balance,
+    tokenIdentifier,
+    conversionOptions,
+    feePolicy
+  })
+
+  // The response amount is the estimated total sats available
+  // (converted sats + existing sat balance)
+  console.log(`Total sats available: ${prepareResponse.amount}`)
+
+  if (prepareResponse.conversionEstimate !== undefined) {
+    const estimate = prepareResponse.conversionEstimate
+    console.log(`Converting ${estimate.amountIn} token units → ~${estimate.amountOut} sats`)
+    console.log(`Conversion fee: ${estimate.fee} token units`)
+  }
+  
+#+end_src
+
+* Converting tokens
+token conversion enables payments to be made without holding the required asset by converting on-th-fly between bitcoin and tokens using the Flashnet protocol.
+
+
+* Send USDC/USDT
+The SDK can sent USDC or USDT from a Spark wallet to a recipient on any o fthe serverl supported chains:
+Ethereum-family chains, Solana, and Tron.
+
+* Providers
+the sdk ship with two cross-chain provider
+Orchestra(Flashnet) and Boltz
+
+* Sending and receiving tokens
+spark supports tokens using the BTKN protocol.  Breez SDK enable you to send and receive these tokens
+
+see token balance for each token in wallet
+#+begin_src typescript
+  const info = await sdk.getInfo({
+    // ensureSynced: true will ensure the SDK is synced with the Spark network
+    // before returning the balance
+    ensureSynced: false
+  })
+
+  // Token balances are a map of token identifier to balance
+  const tokenBalances = info.tokenBalances
+  for (const [tokenId, tokenBalance] of Object.entries(tokenBalances)) {
+    console.log(`Token ID: ${tokenId}`)
+    console.log(`Balance: ${tokenBalance.balance}`)
+    console.log(`Name: ${tokenBalance.tokenMetadata.name}`)
+    console.log(`Ticker: ${tokenBalance.tokenMetadata.ticker}`)
+    console.log(`Decimals: ${tokenBalance.tokenMetadata.decimals}`)
+  }
+  
+#+end_src
+
+fetch metadata for token
+#+begin_src typescript
+  const response = await sdk.getTokensMetadata({
+    tokenIdentifiers: ['<token identifier 1>', '<token identifier 2>']
+  })
+
+  const tokensMetadata = response.tokensMetadata
+  for (const tokenMetadata of tokensMetadata) {
+    console.log(`Token ID: ${tokenMetadata.identifier}`)
+    console.log(`Name: ${tokenMetadata.name}`)
+    console.log(`Ticker: ${tokenMetadata.ticker}`)
+    console.log(`Decimals: ${tokenMetadata.decimals}`)
+    console.log(`Max Supply: ${tokenMetadata.maxSupply}`)
+    console.log(`Is Freezable: ${tokenMetadata.isFreezable}`)
+  }
+  
+#+end_src
+
+
+receiving a token payment
+
+token payments can be received using a spark address or invoice.
+
+receive token by invoice
+#+begin_src typescript
+  const tokenIdentifier = '<token identifier>'
+  const optionalDescription = '<invoice description>'
+  const optionalAmount = '5000'
+  // Optionally set the expiry UNIX timestamp in seconds
+  const optionalExpiryTimeSeconds = 1716691200
+  const optionalSenderPublicKey = '<sender public key>'
+
+  const response = await sdk.receivePayment({
+    paymentMethod: {
+      type: 'sparkInvoice',
+      tokenIdentifier,
+      description: optionalDescription,
+      amount: optionalAmount,
+      expiryTime: optionalExpiryTimeSeconds,
+      senderPublicKey: optionalSenderPublicKey
+    }
+  })
+
+  const paymentRequest = response.paymentRequest
+  console.log(`Payment request: ${paymentRequest}`)
+  const receiveFeeSats = response.fee
+  console.log(`Fees: ${receiveFeeSats} token base units`)
+  
+#+end_src
+
+
+sending a token payment
+#+begin_src typescript
+  const paymentRequest = '<spark address or invoice>'
+  // Token identifier must match the invoice in case it specifies one.
+  const tokenIdentifier = '<token identifier>'
+  // Set the amount of tokens you wish to send (in token base units).
+  const amount = BigInt(1_000)
+
+  const prepareResponse = await sdk.prepareSendPayment({
+    paymentRequest: { type: 'input', input: paymentRequest },
+    amount,
+    tokenIdentifier,
+    conversionOptions: undefined,
+    feePolicy: undefined
+  })
+
+  // If the fees are acceptable, continue to send the token payment
+  if (prepareResponse.paymentMethod.type === 'sparkAddress') {
+    console.log(`Token ID: ${prepareResponse.paymentMethod.tokenIdentifier}`)
+    console.log(`Fees: ${prepareResponse.paymentMethod.fee} token base units`)
+  }
+  if (prepareResponse.paymentMethod.type === 'sparkInvoice') {
+    console.log(`Token ID: ${prepareResponse.paymentMethod.tokenIdentifier}`)
+    console.log(`Fees: ${prepareResponse.paymentMethod.fee} token base units`)
+  }
+
+  // Send the token payment
+  const sendResponse = await sdk.sendPayment({
+    prepareResponse,
+    options: undefined
+  })
+  const payment = sendResponse.payment
+  console.log(`Payment: ${JSON.stringify(payment)}`)
+  
+#+end_src

@@ -1,0 +1,257 @@
+#+title:      claude code
+#+date:       [2026-09-02 Wed 09:08]
+#+filetags:   :ai:anthropic:claude:
+#+identifier: 20260902T090849
+
+Agentic Coding Tool
+
+has tools
+
+AI thrives in good coded bases
+
+AI needs feedback loops
+typechecking
+browser
+tests
+
+* terminal setup
+~/terminal-setup~ : allows Shift + Enter for new line
+
+* init
+~/init~ : initialize a claude.md file
+
+scans project
+
+provide context to claude code
+
+~#~ : to memorize command in claude.md 
+
+* context
+
+~@path/to/file~ : you can add a file as context to claude code
+
+~/clear~ : clear context
+
+~/compact~ : compact the context and give it a summary
+
+
+*press ESC twice* : rewide to previous point in context
+
+* MCP
+
+allows claude code to communicate outside your code base
+
+Model Context Protocol
+
+communicates with a MCP server
+
+ex: PlayRight
+
+~claude mcp add context7 --scope project -- npx -y @upstash/context7-mcpclaude~
+
+~claude mcp add playwright npx @playwright/mcp@latest~
+
+~claude mcp add -s user playwright -- npm @playwright/mcp@latest~
+
+~/mcp~ : show mcp servers
+
+context7 : give modles updated information about frameworks
+
+playright : allows claude to open browser, allow claude to see it.
+
+* SKILLS
+
+teaches claude how to do something once
+
+the description helps claude deside when to use the skill
+
+when ever you pass a promt to claude is compares to all the skill descriptons to see if it's appropriate to use it.
+
+~.claude/skills~
+
+ask claude to do certain things in a specific way
+
+a reusable workflow
+
+~SKILL.md~
+
+~/<new-skill>~
+
+give claude instructions on how to do things
+
+you can lookup skills online
+
+just prewriten instuctions instructing claude how to do a certain task
+
+explain code standards to claude
+
+skills is so you don't have to repeate yourself
+
+claude compaire prompt to skill descriptions
+
+~.claude/skills~
+
+skills load on demand when they match your request
+
+if you find yourself repeating to claude then that is a skill
+
+you need to specify skill for subagents, they are not automatically loaded
+
+you can specify which tools and model to use in a skill
+
+try to keep your skill under 500 line.  if you cant then consider splitting it up.
+
+#+begin_src markdown
+  ---
+  name: <name-of-skill>
+  description: <descrition-of-skill>
+  ---
+  instructions
+#+end_src
+- description tell claude when to use it, matching criteria
+
+skills are reusabel instructions
+
+you can store reference and script in the folder.  they only get added to context when needed
+
+SKILLS.md is the brain. the support files (script,references) are the tools.
+
+a skill folder contains
+- SKILL.md (instructions)
+- scripts/ (executable code)
+- references/ (documentation loaded as needed)
+- assets/ (templates,fonts,icons used in output)
+
+SOP (standard operating procedure)
+
+Progressive Disclosure : load refrences and scripts as needed to context
+
+we can setup skill that run custom scripts
+
+frontend design skill???
+
+* Github
+
+use Claude to review github pull requests
+
+automatically work on issues
+
+need github cli installed on your computer
+
+~/install-github~ : setup claude Github Actions for repo
+
+* tools
+
+claude code comes with built in tools like Bash, Read, Edit, grep, LS,  WebSearch, WebFetch, etc ...
+
+claude code knows when to use certain tools based on your instructions
+
+
+* plan mode
+
+Shift + Tab : cycle till you hit plan mode
+
+* extended thinking
+
+ask AI to think longer in implementing complex solutions
+
+put /thing to tell claude to think harder???
+
+* commands
+
+a slash command to you can give to claude code
+
+ex: create a component
+give instructions on how you want the component to be made.
+
+* subagents
+
+create a team in a project
+
+each subagent can be isolated and configured to work on a particular task
+
+ex: Unit Tester, Security Auditor, UX Reviewer
+
+- you can setup the UX Reviewer to use playright
+
+claude code and delegate tasks to subagents
+
+~/agents~ : start creating agents
+
+a subagent is a cerperate claude session that gets spun up to handdle a task and reposts it back to the main thread
+it has it's own context window
+
+they are good for optimize your code
+
+they run in their own context window so that the main context window does not get bogged down
+
+use subagents if you want a seperate execution context
+
+* agent teams
+
+teams of agents can communicate with each other
+allows colaboration between agents
+
+* modles
+
+select models
+
+* usage
+
+see usage of tokens
+
+* btw
+you can ask a side question
+
+* !
+command mode, you can run a shell command in promtp
+
+* Mode Switch
+~Shift + Tab~ : switch mode
+
+plan mode
+
+auto mode
+
+* context window
+
+~/context~  :  see if your within your context limit
+
+* resume
+
+resume previous conversation
+
+* .agents/skills
+
+universal for all AI frameworks
+
+is where skills are saved
+
+.claude/skill is a symbolic link
+
+
+* AGENTS.md
+
+claude.md can reference it
+
+@agents.md
+
+* Conversation History
+
+every session you have is stored
+
+~claude --resume~
+
+* hook
+
+auto instructions
+
+steps that get triggered 
+
+* worktree
+
+you can tell claude to work in a work tree
+
+--worktree
+
+you can have agents work on seperate worktrees

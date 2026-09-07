@@ -3,38 +3,47 @@
 #+FILETAGS: :emacs:org:
 #+identifier: 20260801T212600
 
+https://orgmode.org/worg/org-tutorials/org4beginners.html
+
+https://github.com/james-stoup/emacs-org-mode-tutorial
+
+https://orgmode.org/worg/org-tutorials/orgtutorial_dto.html
+
+
+org mode is for keeping notes, maintaining TODO lists, project planning
+
 
 
 * key
-| key                | command                         | description                                   |
-|--------------------+---------------------------------+-----------------------------------------------|
-| M-RET              | new bullit                      | create a new exact copy of bulit in next line |
-| M-Left             | move column or builit left      | move column or bullet to left                 |
-| M-right            | move colum or bullet right      | move column or bullet to right                |
-| M-up               | move row or bullet up           | move row or bullet up                         |
-| M-down             | move row or bullet down         | move row or bullet down                       |
-| C-u C-c .          | insert datetime                 |                                               |
-| C-c .              | insert timestamp                | insert date time string                       |
-| C-c C-l            | insert link                     | insert link                                   |
-| C-c C-o            | open link                       | open link                                     |
-| C-c C-e            | export                          |                                               |
-| M-S <arrows>       | move groups                     |                                               |
-| C-c C-t            | show option for TODO seq        |                                               |
-| C-c C-c            | mark checklist                  |                                               |
-| C-c C-d            | add deadline to todo            |                                               |
-| C-c C-s            | add schedule/start date to todo |                                               |
-| Shift-Tab          | collapse all toggle             |                                               |
-| Shift-<left right> | move through todo se            |                                               |
-| M-org-agenda       | org agenda view for todos       |                                               |
-| M-org-agenda-list  | list tasks squdualed            |                                               |
-| C-c C-q            | create tag                      |                                               |
-| C-c C-x p          | add property to TODO            |                                               |
-| C-c C-e c a        | export agenda to iCal file      |                                               |
-| C-c C-e            | export list for org file        |                                               |
-| C-c C-w            | refile                          |                                               |
-| C-c C-z            | log                             |                                               |
-| C-c C-x C-i        | clock in                        |                                               |
-| C-c C-x C-o        | clock out                       |                                               |
+| key                | command                             | description                                      |
+|--------------------+-------------------------------------+--------------------------------------------------|
+| M-RET              | new headline                        | create a new exact copy of headline in next line |
+| M-Left             | move headline or table column left  | move headline or table column to left            |
+| M-right            | move headline or table column right | move headline or table column to right           |
+| M-up               | move headline or table row up       | move headline or table row up                    |
+| M-down             | move headline or table row down     | move headline or table row down                  |
+| C-u C-c .          | insert datetime                     | insert data time string                          |
+| C-c .              | insert timestamp                    | insert time string                               |
+| C-c C-l            | insert link                         | insert link                                      |
+| C-c C-o            | open link                           | open link                                        |
+| C-c C-e            | export                              | export this org file                             |
+| M-S <arrows>       | move groups                         |                                                  |
+| C-c C-t            | show option for TODO seq            |                                                  |
+| C-c C-c            | mark checklist                      |                                                  |
+| C-c C-d            | add deadline to todo                |                                                  |
+| C-c C-s            | add schedule/start date to todo     |                                                  |
+| Shift-Tab          | toogle all headlines                |                                                  |
+| Shift-<left right> | move cycle through todos            |                                                  |
+| M-org-agenda       | org agenda view                     |                                                  |
+| M-org-agenda-list  | list tasks scheduled                |                                                  |
+| C-c C-q            | create tag                          |                                                  |
+| C-c C-x p          | add property                        |                                                  |
+| C-c C-w            | refile headline                     |                                                  |
+| C-c C-z            | log                                 |                                                  |
+| C-c C-x C-i        | clock in                            |                                                  |
+| C-c C-x C-o        | clock out                           |                                                  |
+| TAB                | toogle fold to headline             |                                                  |
+| S-TAB              | toogle fold to all healines         |                                                  |
 
 * markup                                                           :anything:
 DEADLINE: <2026-07-20 Mon>

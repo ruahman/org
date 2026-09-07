@@ -7,6 +7,8 @@ stable coins are dollars on a blockchain
 
 spend stable coins with master card.
 
+build crypto ramps directly in your app.
+
 * what is MoonPay?
 MoonPay is a financial technology company that builds payment infrastructure for crypto.
 it offers simple ways to buy, sell, and swap cryptocurrencies using a wide range of payment methods
@@ -117,3 +119,307 @@ a hosted on-ramp and off-ramp you embed in your app.
 more flexible
 
 build your own on-ramp and off-ramp using MoonPay's APIs
+
+* Quickstart
+
+hosted onboarding
+
+Get a session token
+#+begin_src typescript
+  // Server-side code example
+  const url = "https://api.moonpay.com/platform/v1/sessions";
+
+  const res = await fetch(url, {
+    headers: {
+      "Content-Type": "application/json",
+      "X-Api-Key": "sk_test_123",
+    },
+    method: "POST",
+    body: JSON.stringify({
+      externalCustomerId: "your_user_id",
+      deviceIp: "...ip address from client",
+    }),
+  });
+
+  console.log(await res.json());
+#+end_src
+- create a session token on your server and send the token to your front end
+
+
+Connect a customer
+#+begin_src typescript
+  import { createClient } from "@moonpay/platform-sdk-web";
+
+  // Create the client with your session token
+  const client = createClient({
+    sessionToken: "c3N0XzAwMQ==", // The session token from your server
+  });
+
+  // Check if the customer has an active connection
+  const connectionResult = await client.getConnection();
+
+  if (!connectionResult.ok) {
+    // Handle error
+  }
+
+  console.log(connectionResult.value);
+#+end_src
+- on frontend, check whether the customer has an active connection.
+
+
+list payment methods
+list payment method available to the customer
+#+begin_src typescript
+  // After connecting, list available payment methods
+  const paymentMethodsResult = await client.getPaymentMethods();
+
+  if (!paymentMethodsResult.ok) {
+    // Handle error
+  }
+
+  console.log(paymentMethodsResult.value);
+  
+#+end_src
+
+Get quotes
+#+begin_src typescript
+  const quoteResult = await client.getQuote({
+    source: { asset: { code: "USD" }, amount: "100.00" }, // The fiat currency and amount to pay
+    destination: { asset: { code: "ETH" } }, // The crypto the customer will receive
+    wallet: { address: "0x..." }, // The destination wallet address
+    paymentMethod: { type: "apple_pay" },
+  });
+
+  if (!quoteResult.ok) {
+    // Handle error
+  }
+
+  console.log(quoteResult.value);
+  // { signature: "...", expiresAt: "2026-01-12T14:45:00Z", ... }
+#+end_src
+
+
+Execute headless payments
+#+begin_src typescript
+  import type { ApplePayEvent } from "@moonpay/platform-sdk-web";
+
+  const paymentButtonContainer = document.querySelector("#payment");
+
+  const setupApplePayResult = await client.setupApplePay({
+    quote: quoteResult.value.signature, // The quote signature
+    container: paymentButtonContainer,
+
+    onEvent: (event: ApplePayEvent) => {
+      switch (event.kind) {
+        case "ready":
+          // Reveal the button
+          paymentButtonContainer.style.opacity = "1";
+          break;
+
+        case "complete":
+          // The transaction is executing. Use polling and/or webhooks to track final status.
+          console.log(event.payload.transaction);
+          // { id: "txn_01", status: "pending" }
+          break;
+
+        case "quoteExpired":
+          // Fetch a new quote and update the frame
+          // event.payload.setQuote(newQuote.signature);
+          break;
+      }
+    },
+  });
+
+  if (!setupApplePayResult.ok) {
+    // Handle error
+  }
+#+end_src
+
+* Core concepts
+
+** Connections
+an active connection represents a customer's permission to associate their MoonPay account to your application
+
+** Frames
+the integration uses a combination of API calls and frames.
+
+you render an embeddded frame (WebView) or (iFrame).
+this keeps sensitive data out of your application
+
+*** Co-branded
+render MoonPay-hosted UI
+
+*** Headless frames
+are either invisible or display minimal, non-customizable elements such as an Apple apy button.
+
+* Requirements
+to integrate the headless ramp, you need:
+- a partner account and API credentials
+- install the sdk
+- a server for sending requests to MoonPay and receiving webhooks
+
+
+Content Security Policy
+you Content Security Plicy (CSP) must allow MoonPay iframes and network calls
+
+~Content-Security-Policy: frame-src https://*.moonpay.com/; connect-src https://*.moonpay.com/;~
+
+ApplePay
+To use Apple Pay on the web, you must complete Apple’s domain verification to prove ownership of your site.
+
+* Test mode
+use test mode to develop and test your integration without transferrring real assets.
+
+MoonPay provides a test mode for integration development and testing.
+
+Test mode uses testnet blockchains and simulated payments. No real assets are transferred.
+
+** Enabling test mode
+Test mode is determined by the API keys you use when creating a session
+
+you can find your API keys on the Developers page in you MoonPay dashboard
+
+* Going Live
+Acceptance criteria for going live
+
+* Hosted onboarding
+is the fastest path to production.
+you render the co-branded connect frame.
+moodpay guides the cutomer through login and the full KYC flow.
+
+* Onboarding via API
+you keep onboarding in your own screens and drive verification through the Customer API.
+
+* Guest checkout
+defers verificatio until purchase requires it.
+you must pass email, phone, etc...
+moonPay creates a guest account.
+when purchase needs identity confirmation the payment frame emits a steup challenge for you to render.
+
+* Hosted onboarding
+Connect customer account with login and full KYC in MoonPay's co-branded connect frame.
+
+** Prerequisites
+server create session tokens with secret key.
+
+client reders frames
+
+#+begin_src typescript
+  // Server-side code example
+  const url = "https://api.moonpay.com/platform/v1/sessions";
+
+  const res = await fetch(url, {
+    headers: {
+      "Content-Type": "application/json",
+      "X-Api-Key": "sk_test_123",
+    },
+    method: "POST",
+    body: JSON.stringify({
+      externalCustomerId: "your_user_id",
+      deviceIp: "...ip address from client",
+    }),
+  });
+
+  console.log(await res.json());
+#+end_src
+
+check connection
+using the sessionToken, check if user alread has an active connection.
+
+#+begin_src typescript
+  import { createClient } from "@moonpay/platform-sdk-web";
+
+  // Create the client with your session token
+  const client = createClient({
+    sessionToken: "c3N0XzAwMQ==", // The session token from your server
+  });
+
+  // Check if the customer has an active connection
+  const connectionResult = await client.getConnection();
+
+  if (!connectionResult.ok) {
+    // Handle error
+  }
+
+  console.log(connectionResult.value);
+#+end_src
+- the SDK inject an invisable frame to check the connection
+
+
+connect
+#+begin_src typescript
+  import { createClient, type ConnectEvent } from "@moonpay/platform-sdk-web";
+
+  // Create the client
+  const client = createClient({
+    sessionToken: "c3N0XzAwMQ==", // The session token from your server
+  });
+
+  // Initialize the connect flow
+  const connectResult = await client.connect({
+    container: connectContainer, // DOM element to render the connect frame
+
+    theme: { appearance: "dark" }, // Optional: force dark or light mode
+
+    onEvent: (event: ConnectEvent) => {
+      switch (event.kind) {
+        case "ready":
+          // The frame is ready and rendered
+          break;
+
+        case "complete":
+          // The connection is complete
+          console.log(event.connection);
+          // { status: "active", customer: { id: "..." }, credentials: { accessToken: "...", clientToken: "...", expiresAt: "..." } }
+
+          // You can unmount the frame using the reference in the payload
+          event.payload.frame.dispose();
+          break;
+
+        case "error":
+          // Handle error
+          console.error(event.payload.message);
+          break;
+      }
+    },
+  });
+
+  // If there is an error setting up the connect frame, no events are
+  // dispatched via the `onEvent` callback, and you receive an error here.
+  if (!connectResult.ok) {
+    // Handle error
+  }
+
+  // If the frame is successfully mounted, the returned value provides a reference for disposal at any time.
+  connectResult.value.dispose();
+#+end_src
+- when you recieve the complete event, the payload includes authenticated client credentials and a customer object
+  identifying the connect MoonPay customer.
+
+
+** Onboarding via API
+onboard customer in your own UI with the Customer API:
+check KYC,
+submit requirements,
+and handle verification.
+
+
+** Choose a payment method
+choose a payment experience that fits your UI
+
+call ~getPaymentMethods()~ to see which methods are available for the customer righ now
+
+*** Guest checkout
+new customers buy with Apple Pay or Google Pay before they have a MoonPay account, and verification steps up only whena a purchase requires it.
+
+let new customers buy grypto with Apple Pay or Google Pay without a MoonPay account.
+
+deferred-verification
+
+*** Pay with the buy button
+let customer buy crypto from a single express checkout button that handles payment-method selection and confirmation for you.
+
+*** Pay with widget
+render MoonPay buy widget to support all payment methods and regions
+
+the widget reders the full MoonPay buy experience
