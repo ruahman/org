@@ -3,6 +3,49 @@
 #+filetags:   :breez:spark:
 #+identifier: 20260907T144149
 
+* about
+
+non-custodial bitcoin and stablecoins into apps
+
+seamless onboarding for billions of users
+
+utilizing the Bitcoin-native Layer 2 Lighting & Spark
+
+Send Payments via various protocols such as: Lighting Addresses, LNURL-Pay, Bolt11, BTC addresses, Spark address, BTKN, USDT/USDC
+
+receive payments via lighing Address, LNURL-Pay, Bolt11, BTC address, Spark Address, BTKN
+
+Stable Balance - hold your balance in USD
+
+Issue, Send and receive Spark tokens (BTKN)
+
+keys are only held by users
+
+
+request api key
+#+begin_src bash
+  curl -d "fullname=<full name>" -d "company=<company>" -d "email=<email>" -d "message=<message>" \
+  https://breez.technology/contact/apikey
+
+#+end_src
+
+* Javascript/Typescript (Wasm)
+
+#+begin_src bash
+  npm install @breeztech/breez-sdk-spark
+#+end_src
+
+* Testing and development
+for testing and development use Regtest - a deployed test network maintained by LightSpark
+
+the regtest network does not have a developed Lightning Network, so test Lightning send and receive on Mainnet
+
+stablecoin assets are only on Mainnet
+USDB is the Spark-native stablecoin
+USDC is the circle stable coin
+USDT is the tether stable coin
+
+* stable balance
 the stable balance feature enable users to switch between bitcoin and a stablecoin, like USDB
 protecting it from bitcoin price volatility.
 
@@ -18,6 +61,15 @@ once your sats balance exceeds the configured threshold.
 
 On send - when you send a bitcoin payment and your sats balance is insufficient,
 the SDK converts USDB back to bitcoin to cover the payment.
+
+** How it works
+When Stable Balance is configured and activated the SDK manages conversions in both directions
+
+** Configuration
+To enable Stable Balance, configure the stable balance config when initializing the SDK.
+
+*Tokens* : the stablecoin to use
+*Threshold Sats* : minimum sats to trigger automatic conversion
 
 * configuration
 

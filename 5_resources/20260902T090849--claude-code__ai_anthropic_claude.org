@@ -130,6 +130,91 @@ we can setup skill that run custom scripts
 
 frontend design skill???
 
+agents need well defined processes
+
+skills help stear your agents to keep them on the right track
+
+** grill-me
+helps you flesh out an idea
+
+#+begin_src markdown
+  ---
+  name: grill-me
+  description: Interview the user relentlessly about a plan or design untill reaching a shared understanding,
+  resolve each branch of the decision tree.  Use when user wants to stress-test a plan,
+  get grilled on their design, or mentions "grill me"
+  ---
+
+  Interview me relentlessly about every aspect of this plan untill we reach a shared understranding.
+  Walk down each branch of the design tree, resolve dependencies between decisions one-by-one.
+
+  If a question can be answered by exploring the codebase, explore the codebase intead.
+#+end_src
+
+relentlessly -> until we reach a shared understanding
+
+decision tree -> one branch at a time
+
+one at a time -> wait for my answers befor next
+
+recommend one -> never hand me a blank question but also provide a recomendation
+
+** to-spec
+convert conversation you had from grill-me to a offical document or PRD(Product Release Document)
+
+** to-tickets
+converst what we have in spec to tickets that we can act on
+
+don't group by layer but by feature
+
+** implement
+implement code
+use /tdd where ever possible
+use /code-review when done
+
+** write-prd
+Product Release Document
+
+help you take your idea and create a document
+
+** prd-to-issues
+break down prd into task or github issues
+
+** tdd
+test driven development
+
+** front-end-design
+offical skill from anthropic
+use real design principles
+
+** /grill-with-docs
+
+** /tdd-workflow
+
+** /code-reviewer
+use it to review PRs
+
+** /skill-creator
+it builds skills for you
+claude interviews you till it creates the skill
+
+
+** /review
+claude does code review on what you just build
+bugs
+edge cases
+design issues
+
+** /to-spec
+
+** /to-ticket
+
+** /implement
+
+** /code-review
+
+gril-me -> to-spec -> to-tickets -> code-review -> implement
+
 * Github
 
 use Claude to review github pull requests
