@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       ad5a4376-5c25-481a-9e7b-d75b8d261b14
+:END:
+#+title: Psalms_37_11
+#+filetags: :bible:
+
+But the meek will possess the earth,
+and they will find exquisite delight in the abundance of peace.
