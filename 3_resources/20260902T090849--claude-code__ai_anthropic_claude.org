@@ -134,6 +134,8 @@ agents need well defined processes
 
 skills help stear your agents to keep them on the right track
 
+define good triggers
+
 ** grill-me
 helps you flesh out an idea
 
@@ -215,6 +217,8 @@ design issues
 
 gril-me -> to-spec -> to-tickets -> code-review -> implement
 
+
+
 * Github
 
 use Claude to review github pull requests
@@ -272,6 +276,27 @@ they run in their own context window so that the main context window does not ge
 
 use subagents if you want a seperate execution context
 
+keep context window clean
+
+~/agents~
+you can create your own subagents
+
+/Create a front-end engin3eer that is an expert in Next.js, Tailwind, etc/
+
+a subagent is an agent that runs in a seperate context window
+
+if your going to do a complex task it makes sense to hand it over to an agent so that it does not polute the context window
+
+you can also delegate them to cheaper modles
+
+you can use more specialized agent instead of One big general agent with context bloat
+
+you need to specify what the agent does and when claude should use it
+
+Sonnet is for executing
+Opus is for planning
+
+you can invoke a specific agent with @ in the prompt 
 * agent teams
 
 teams of agents can communicate with each other

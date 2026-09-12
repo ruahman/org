@@ -28,25 +28,25 @@ org mode is for keeping notes, maintaining TODO lists, project planning
 | C-c C-o            | open link                           | open link                                        |
 | C-c C-e            | export                              | export this org file                             |
 | M-S <arrows>       | move groups                         |                                                  |
-| C-c C-t            | show option for TODO seq            |                                                  |
-| C-c C-c            | mark checklist                      |                                                  |
-| C-c C-d            | add deadline to todo                |                                                  |
-| C-c C-s            | add schedule/start date to todo     |                                                  |
+| C-c C-t            | TODO options                        | show options for TODO                            |
+| C-c C-c            | check                               | toogle checklist                                 |
+| C-c C-d            | deadline                            | add deadline to headline                         |
+| C-c C-s            | schedule                            | add schedule to headline                         |
 | Shift-Tab          | toogle all headlines                |                                                  |
 | Shift-<left right> | move cycle through todos            |                                                  |
 | M-org-agenda       | org agenda view                     |                                                  |
 | M-org-agenda-list  | list tasks scheduled                |                                                  |
 | C-c C-q            | create tag                          |                                                  |
 | C-c C-x p          | add property                        |                                                  |
-| C-c C-w            | refile headline                     |                                                  |
+| C-c C-w            | refile                              | move block under another headline                |
 | C-c C-z            | log                                 |                                                  |
 | C-c C-x C-i        | clock in                            |                                                  |
 | C-c C-x C-o        | clock out                           |                                                  |
 | TAB                | toogle fold to headline             |                                                  |
 | S-TAB              | toogle fold to all healines         |                                                  |
 
-* markup                                                           :anything:
-DEADLINE: <2026-07-20 Mon>
+* markup                                                    :anything:hidden:
+
 :LOGBOOK:
 - Note taken on [2026-07-25 Sat 19:58] \\
   see if you are in draw
@@ -57,8 +57,8 @@ DEADLINE: <2026-07-20 Mon>
 =verbetum=
 +strikthrough+
 
-* bullit
-SCHEDULED: <2026-07-30 Thu>
+* bullit                                                     :archive:hidden:
+
 as;ldkfjasf
 ** test 23
 a;sl
@@ -155,8 +155,6 @@ open link
 - [ ] abples
 - [ ] dog food
 
-* repeated tasks
-SCHEDULED: <2026-07-31 Fri +1w>
 
 * TODO org-mode agenda
 :LOGBOOK:

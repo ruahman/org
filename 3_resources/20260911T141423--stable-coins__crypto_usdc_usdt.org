@@ -1,0 +1,48 @@
+#+title:      Stable Coins
+#+date:       [2026-09-11 Fri 14:14]
+#+filetags:   :crypto:usdc:usdt:
+#+identifier: 20260911T141423
+
+give everyone access to dollars
+
+Transparency
+
+Regulatory compliance
+
+Top for DeFi
+
+Tether is available in 13 blockchains
+Ethereum, Tron, Solana
+
+Tether reserves and transparency is an issue
+
+Tether should hold us securities in reserves
+1:1 backing
+
+peg to the dollar
+
+USDT and USDC are the most important US Dollar Stable coins
+
+play a central role in
+trading
+lending
+payments
+
+circle has audits
+fully complient with US regulations
+
+there use to be algorithmic stable coins like Tera (USDT) Luna
+algorithmic stable coins are unreliable
+
+cross boarder payments
+
+POS is where adaption starts
+
+for tether only 80% is backed by US secriteis the rest are other accests that can be liquified
+
+stable coins are great for remetences and cross boarder payments
+
+circle gets money from interest from bonds they buy
+
+USDB is from Robin Hood, Kraken, Anchorage
+issued on Bitcoin???
