@@ -1,0 +1,120 @@
+#+title:      test-latex
+#+date:       [2026-09-12 Sat 22:30]
+#+filetags:   :latex:
+#+identifier: 20260912T223039
+#+STARTUP: latexpreview
+
+~M-x org-latex-preview (C-c C-x C-l)~  : render inline latex
+
+$E = mc^2$
+
+
+
+* LaTeX Examples
+
+** Inline fragments (for org-latex-preview)
+
+The quadratic formula: $x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$
+
+Euler's identity: $e^{i\pi} + 1 = 0$
+
+A displayed equation:
+
+\begin{equation}
+\int_0^\infty e^{-x^2} \, dx = \frac{\sqrt{\pi}}{2}
+\end{equation}
+
+A matrix:
+\[
+A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}
+\]
+
+* Comprehensive Inline LaTeX Examples
+
+** Basic math delimiters
+
+Dollar signs (most common): $a^2 + b^2 = c^2$
+
+Single-character shortcut (no spaces needed): $x$ is a variable, $n$ items
+
+Escaped parens for inline math: \(f(x) = x^2 + 2x + 1\)
+
+Escaped brackets for displayed/block math:
+\[
+\lim_{x \to \infty} \frac{1}{x} = 0
+\]
+
+** Subscripts, superscripts, and fractions
+
+Subscript: $a_1, a_2, \ldots, a_n$
+
+Superscript with braces for multi-character: $2^{10} = 1024$
+
+Nested fractions: $\cfrac{1}{1 + \cfrac{1}{1 + \cfrac{1}{2}}}$
+
+Simple fraction: $\frac{d}{dx}\left(x^2\right) = 2x$
+
+** Greek letters and symbols
+
+Common Greek letters: $\alpha, \beta, \gamma, \delta, \pi, \theta, \lambda, \sigma$
+
+Special symbols: $\infty, \partial, \nabla, \forall, \exists, \emptyset$
+
+Set notation: $A \subseteq B, \quad x \in \mathbb{R}, \quad \emptyset \subset A$
+
+** Sums, integrals, products
+
+Summation: $\sum_{i=1}^{n} i = \frac{n(n+1)}{2}$
+
+Integral with bounds: $\int_{0}^{1} x^2 \, dx = \frac{1}{3}$
+
+Product notation: $\prod_{k=1}^{n} k = n!$
+
+Double integral: $\iint_D f(x,y) \, dA$
+
+** Matrices and vectors
+
+Inline vector: $\vec{v} = (v_1, v_2, v_3)$
+
+Matrix (displayed):
+\[
+M = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}
+\]
+
+Determinant notation:
+\[
+\det(A) = \begin{vmatrix} a & b \\ c & d \end{vmatrix} = ad - bc
+\]
+
+** Multi-line aligned equations
+
+\begin{align}
+f(x) &= (x+1)^2 \\
+     &= x^2 + 2x + 1
+\end{align}
+
+** Named equation environments (numbered)
+
+\begin{equation}
+E = mc^2
+\end{equation}
+
+\begin{equation}
+\label{eq:euler}
+e^{i\pi} + 1 = 0
+\end{equation}
+
+You can reference it later: as shown in Equation \ref{eq:euler}.
+
+** Text mixed with math inline
+
+If $n$ is even, then $n^2$ is also even, since $n = 2k$ implies
+$n^2 = 4k^2 = 2(2k^2)$.
+
+** Special LaTeX commands Org handles
+
+Bold math: $\mathbf{v} \cdot \mathbf{w}$
+
+Blackboard bold (common for number sets): $\mathbb{N}, \mathbb{Z}, \mathbb{Q}, \mathbb{R}, \mathbb{C}$
+
+Text inside math mode: $f(x) = x^2 \text{ for all } x \in \mathbb{R}$

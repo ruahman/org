@@ -1,4 +1,4 @@
-#+TITLE: org-mode
+l#+TITLE: org-mode
 #+DATE: [2026-08-01 Sat 21:26]
 #+FILETAGS: :emacs:org:
 #+identifier: 20260801T212600
