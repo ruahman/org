@@ -1,0 +1,20 @@
+#+TODO: BACKLOG(b) TODO(t) NEXT(n) WAITING(w) | DONE(d) CANCLED(d)
+
+* Tasks
+** WAITING demo1 Task 1
+** TODO demo1 Task 2
+** TODO demo1 Task 3                                              
+** TODO demo1 Task 4                                            
+** TODO demo1 Task 5                                       
+
+* Kanban Board
+
+#+BEGIN: kanban 
+| BACKLOG | TODO         | NEXT         | WAITING      | DONE | CANCLED |
+|---------+--------------+--------------+--------------+------+---------|
+|         |              |              | [[file:kanban-demo.org::*demo1 Task 1][demo1 Task 1]] |      |         |
+|         | [[file:kanban-demo.org::*demo1 Task 2][demo1 Task 2]] |              |              |      |         |
+|         |              | [[file:kanban-demo.org::*demo1 Task 3][demo1 Task 3]] |              |      |         |
+|         | [[file:kanban-demo.org::*demo1 Task 4][demo1 Task 4]] |              |              |      |         |
+|         | [[file:kanban-demo.org::*demo1 Task 5][demo1 Task 5]] |              |              |      |         |
+#+END:

@@ -1,1 +1,30 @@
 * Vocabulary
+
+** preeminent                                                         :drill:
+SCHEDULED: <2026-09-16 Wed>
+:PROPERTIES:
+:DRILL_CARD_TYPE: twosided
+:CREATED: [2026-09-12 Sat 18:51]
+:ID:       4b938e83-505f-4acd-a034-54e127f5e613
+:DRILL_LAST_INTERVAL: 4.0
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 4.0
+:DRILL_EASE: 2.5
+:DRILL_LAST_QUALITY: 4
+:DRILL_LAST_REVIEWED: [Y-09-12 Sat 18:%]
+:END:
+
+*** Word
+   preeminent
+
+*** Back
+   greatest in importance,degree,significance or achievement
+
+*** Example
+   the preeminent repositories of Golden Age Spanish art
+
+
+   
+

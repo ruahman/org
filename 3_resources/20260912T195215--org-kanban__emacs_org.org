@@ -1,0 +1,18 @@
+#+title:      org-kanban
+#+date:       [2026-09-12 Sat 19:52]
+#+filetags:   :emacs:org:
+#+identifier: 20260912T195215
+
+turn you org-mode TODO headings into a kanban-style table
+
+~M-x org-kanban/initialize~  inserts dynamic table
+
+#+BEGIN: kanban :mirrored t
+#+END:
+
+- :mirrored t  : reverse column order
+- :match "tag" : show only entries that match string
+- :range ("TODO" . "DONE") : limit which todo states show
+
+~C-c C-c~ : builds the table
+

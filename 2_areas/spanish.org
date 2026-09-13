@@ -1,1 +1,29 @@
-* Spanish
+* Spanish Vocabulary
+
+** Hola                                                               :drill:
+SCHEDULED: <2026-09-16 Wed>
+:PROPERTIES:
+:DRILL_CARD_TYPE: twosided
+:ID:       87efb7c3-f24d-4d37-9e1f-b98fd217252f
+:DRILL_LAST_INTERVAL: 4.14
+:DRILL_REPEATS_SINCE_FAIL: 2
+:DRILL_TOTAL_REPEATS: 1
+:DRILL_FAILURE_COUNT: 0
+:DRILL_AVERAGE_QUALITY: 5.0
+:DRILL_EASE: 2.6
+:DRILL_LAST_QUALITY: 5
+:DRILL_LAST_REVIEWED: [2026-09-12 Sat 20:18]
+:END:
+
+*** Spanish
+   Hola
+
+*** English
+   Hello
+
+*** Example
+   Hola mundo
+
+*** Notes
+   test
+

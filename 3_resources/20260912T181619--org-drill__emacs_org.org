@@ -1,0 +1,15 @@
+#+title:      org-drill
+#+date:       [2026-09-12 Sat 18:16]
+#+filetags:   :emacs:org:
+#+identifier: 20260912T181619
+
+uses a spaced repetition algorithm like Anki
+
+~M-x org-drill~
+
+* Simple topics
+** Item                                                              :drill:
+What is the capital city of Estonia?
+
+** The Answer
+Tallinndd

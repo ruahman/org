@@ -1,9 +1,16 @@
+#+TODO: REPEAT(r) BACKLOG(b) TODO(t) NEXT(n) WAITING(w) | DONE(d!) CANCLED(d!)
 
 * todo
 
 ** TODO Pickup Laptop
 
 ** TODO Pickup Shoes
+
+** DONE Test
+CLOSED: [2026-09-12 Sat 20:31]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2026-09-12 Sat 20:31]
+:END:
 
 * scheduled 
 

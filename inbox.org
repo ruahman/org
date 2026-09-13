@@ -1,5 +1,5 @@
 
-* inbox
+* Inbox
 ** look into org-roam
 ** test inbox
 ** look into org-gcal
