@@ -1,8 +1,8 @@
 :PROPERTIES:
 :ID:       a9b2fec2-94dc-4ee4-bc36-c197e1acd599
 :END:
-#+title: Jude_1:24
-#+filetags: :bible:
+#+title: Jude 1:24
+#+filetags: :guard-you-from-stumbling:bible:
 
 Now to the one who is able to guard you from stumbling
 and to make you stand unblemished in the sight of his glory
