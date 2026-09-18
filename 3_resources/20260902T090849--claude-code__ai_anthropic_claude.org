@@ -344,6 +344,14 @@ ways to trigger sub-agenets
 
 use agents to keep your context clean
 
+front end agent
+back end agent
+qa/tester
+security
+docs reviewer
+code reviewer
+designer
+
 * agent teams
 
 teams of agents can communicate with each other
@@ -369,6 +377,38 @@ agent teams can talk to each other
 
 good for parallelizable tasks
 
+they tend to be a little slower and more expensive but better cuality
+
+Goal: ....
+
+create a team of 3 agents
+
+1. ** Backend Dev **
+2. ** Frontend Dev **
+3. ** QA **
+
+final deliverables:
+-
+-
+-
+
+no more than 3 - 5 agents
+
+team mates can talk to eachother the don't need to go through the main agent
+
+you can see each context from tmux
+
+you have to explictly tell claude to create an agent team
+
+agent split tmux for you
+
+colaboration vs isolation
+
+you need a terminal that support Split-pane mode, tmux
+
+you need to explicity tell claude to create an agent team
+
+subagent are more for a focused task not colaborative
 
 * modles
 

@@ -1,0 +1,24 @@
+#+title:      herdr
+#+date:       [2026-09-18 Fri 12:07]
+#+filetags:   :ai:
+#+identifier: 20260918T120756
+
+a terminal multiplexer for coding agents
+
+herd multiple agents
+
+client -> server
+
+makes sessions, don't need terminal always open
+
+deep integration with coding agents
+
+automatically detect ai agents and shows up in agents sidebar
+
+spaces sidebar
+agents sidebar
+
+claude code plugin can communicat with other agents
+
+
+~C-b ?~  : help
