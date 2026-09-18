@@ -1,0 +1,18 @@
+#+title:      spark
+#+date:       [2026-09-14 Mon 17:00]
+#+filetags:   :bitcoin:layer2:
+#+identifier: 20260914T170058
+
+layer-2 like ark, fedemint, cashu, spark
+
+unilateral exit
+
+it can issue bitcoin payment but also stable coin payments
+
+you can issue stable coins on spark
+
+spark entity SE
+spark operator SO
+spark service provider SSP
+
+spark entity has one or more spark operators SOs

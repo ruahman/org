@@ -296,11 +296,79 @@ you need to specify what the agent does and when claude should use it
 Sonnet is for executing
 Opus is for planning
 
-you can invoke a specific agent with @ in the prompt 
+you can invoke a specific agent with @ in the prompt
+
+it keeps you context clean
+
+you can specify the model the agent should run
+
+progresive disclosure, claude reads promt and desides if it needs to run it
+
+you can make specialists
+security-auditor
+tester
+doc-writer
+db-expert
+frontend-developer
+backend-developer
+
+awesome-claude-code-subagents
+
+it you just need it to do one thing than keep it inline
+
+if it's heavy an noisy and will fill context then use subagents
+
+cheaper workers
+
+better results, a fresh agent with a clean context
+
+you make a prompt to claude and claude makes the desicion if it needs to delegate to a subagent or use a tool
+
+~.claude/agent-memory~ : memory of the agent???
+
+name:
+description:
+tools:
+model:
+memory: project // save to agent so that we don't have to rexplain
+instuctions
+
+ways to trigger sub-agenets
+1. Natual Language
+   Use the code-reviewer to check my changes
+2. @mention
+   tag the agent
+3. session wide
+   claude --agenet code-reviewer
+
+
+use agents to keep your context clean
+
 * agent teams
 
 teams of agents can communicate with each other
 allows colaboration between agents
+
+it agents need to talk to each other
+
+limitation to sub-agents they can only comnunicate with the main agent and not with each other
+
+avoid context rote
+
+letting sub-agents to talk to each other
+
+shared task list
+
+you need to enable them in claude code
+
+delegates tasks to fresh claude instance
+
+subagents cant talk to eachother
+
+agent teams can talk to each other
+
+good for parallelizable tasks
+
 
 * modles
 
