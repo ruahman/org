@@ -1,8 +1,11 @@
 :PROPERTIES:
 :ID:       ad5a4376-5c25-481a-9e7b-d75b8d261b14
 :END:
-#+title: Psalms_37_11
+#+title: Psalms 37:10,11
 #+filetags: :bible:
 
+Just a little while longer, and the wicked will be no more;
+you will look at where they were,
+and they will not be there.
 But the meek will possess the earth,
 and they will find exquisite delight in the abundance of peace.

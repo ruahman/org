@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       9d3a612a-1e34-44b0-b55a-0fee84bdda20
+:END:
+#+title: 1 Corinthians 3:18,19
+#+filetags: :bible:let-him-become-a-fool:
+
+If anyone among you thinks he is wise in this system of things,
+let him become a fool, so that he may become wise.
+for the wisdom of this world is foolishness with God,
+for it is written: "He catches the wise in their own cunning"

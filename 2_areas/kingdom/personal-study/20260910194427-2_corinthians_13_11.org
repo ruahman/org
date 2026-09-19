@@ -1,8 +1,8 @@
 :PROPERTIES:
 :ID:       2cf75c16-5327-4d77-9a28-36c75c8764ef
 :END:
-#+title: 2-Corinthians_13_11
-#+filetags: :bible:
+#+title: 2-Corinthians 13:11
+#+filetags: :bible:readjusted:think-in-agreement:
 
 Finally,
 brothers,
@@ -12,3 +12,7 @@ to be comforted,
 to think in agreement,
 to live peaceably;
 and the God of love and of peace will be with you.
+
+
+
+the God of love and peace will be with you.

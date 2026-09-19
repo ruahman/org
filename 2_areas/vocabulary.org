@@ -25,6 +25,37 @@ SCHEDULED: <2026-09-16 Wed>
 *** Example
    the preeminent repositories of Golden Age Spanish art
 
+** exhortation                                                        :drill:
+:PROPERTIES:
+:DRILL_CARD_TYPE: twosided
+:END:
 
+*** Word
+   exhortation
+
+*** Back
+   strong, earnest urging or encouragement to do something
+
+*** Example
+   The coach's exhortation stirred the team's spirit
+
+*** Notes
+   aims to move or motivate the listener
+
+** discernment                                                        :drill:
+:PROPERTIES:
+:DRILL_CARD_TYPE: twosided
+:END:
+
+*** Word
+   discernment
+   
+*** Back
+   the power or faculty of the mind by which it distinguishes one thing from another
+
+*** Example
+   The manager's discernment in hiring led her to select candidates who not only had strong technical skills but also demonstrated genuine integrity and teamwork.
+
+*** Notes
    
 

@@ -1,7 +1,7 @@
 :PROPERTIES:
 :ID:       558b94dd-e54c-4058-b638-98e4151e3cd4
 :END:
-#+title: 1-Corinthians_14_40
-#+filetags: :bible:
+#+title: 1-Corinthians 14:40
+#+filetags: :bible:decently-and-by-arrangement:
 
 But let all things take place decently and by arrangement 

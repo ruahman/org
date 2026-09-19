@@ -1,8 +1,8 @@
 :PROPERTIES:
 :ID:       2a6526a5-4f19-4c91-91da-a63ad3200784
 :END:
-#+title: 1-Timothy_3_1
-#+filetags: :bible:
+#+title: 1-Timothy 3:1
+#+filetags: :bible:reaching-out:fine-work:
 
 If a man is reaching out to be an overseer,
 he is desirous of a fine work.

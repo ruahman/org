@@ -1,7 +1,7 @@
 :PROPERTIES:
 :ID:       a6793d16-b136-43e4-8bf3-54d886c66a17
 :END:
-#+title: Galatians_6_5
+#+title: Galatians 6:5
 #+filetags: :bible:
 
 For each one will carry his load
