@@ -1,0 +1,158 @@
+:PROPERTIES:
+:ID:       648dc8d0-54d6-424a-84bb-2355f970fcda
+:END:
+#+title: JW Hub Accounting
+#+filetags: :jwhub:accounting:
+
+* remittance
+
+replaces transfer funds in jwhub
+
+the remittance has been moved to accounting
+
+transfers will continue to show online donations that were deposited
+
+you will no longer use transfer to transfer funds to the branch.
+that has been moved to accounting
+
+integrates sending world wide monthly donations and resolutions into JW Hub Accounting.
+
+there is only one remittance per month
+
+even if a congregation chooses to not use JW Accounting, they still need to use it in order to send funds to the branch.
+
+remittance is a three step process.
+
+1. Draft remittance.
+   enter donations and payments you plan to send to the branch.
+
+   the account servant prepares a draft of the remittance.
+
+   click "Draft Remittance"
+
+   there is an Excess funds where a congregation resolves to donate more.
+   
+2. Approve remittance.
+   secretary needs to approve this.
+
+   if you make a mistake you have an hour to undo.
+
+3. Send remittance.
+   account servant sends fund to the branch.
+
+   once remittance is sent you can not collect anymore contributions.
+
+   after remittance is sent you can close the account and make reports
+
+   remittance can be canceled 
+
+primary users of this feature are the account servant and secretary.  
+
+* reconciliation
+
+** prerequisites
+
+it's important to understand the difference between closing a month and reconciling a bank statement.
+these are two separate processes.
+
+you close the month when a donations have been recorded and the monthly remittance has been sent
+
+reconciling a bank statement is a different process entirely.
+it's when you compare the transactions in JW accounting with the bank statements.
+this is done after closing the month.
+
+the accounts sheet s-26
+lines 3,7,8 need to be zero
+
+the monthly congregation account report s-30.
+once read outload to congregation, no more transactions should be recorded for that month.
+if it has not been read yet you can reopen the account and add transactions
+
+before remittance check if 3,7,8 are zero and line 9 matches the ending balance.
+if so you are ready to proceed with the remittance.
+
+** how to start and complete your first reconciliation
+
+1. upload bank statement.
+   only date range and balance is extracted from this.
+
+2. verify date, starting balance, and ending balance.
+
+3. match transactions.
+   match transaction recorded in JW Accounting with what is on the bank statement.
+
+   in the case of a intrest for bank charge, if s-30 has already been read then you can reopen the month and add it there.
+   otherwise add it to the next month.
+
+4. print reports
+   after reconciliation print the complete accounts sheet s-26 and place it in the complete months file. 
+
+
+
+* verify collected contributions
+
+there is a new process to collect and record contributions
+
+the verify collect contributions feature
+
+a photo of the contribution is uploaded and verified right at the kingdom hall, which saves the contribution to accounting
+
+the verifier just needs a jw.org account
+
+the contributions sheet S-24
+
+for quick access go to search and type collected contributions
+
+1. upload photo of S-24
+
+2. verify photo and add verifier
+
+3. share QR code or link to verifier
+
+4. verifier now verifies contribution
+   you can now diregard the paper s-24
+
+
+don't we need the s-24 for the audits???
+yes we now have a feature to view all the s-24s for a closed month.
+after month is closed go to print reports and see attachments.
+
+all contributions must be verified before completing the remittance and closing the month 
+
+* Roles and Responsibilities
+
+** congregation secretary
+primarily responsible to insure that accounting instructions are followed and accounting records are accurate
+oversees the account servant
+reviews bank statements
+
+** account servant
+should have a through understanding of accounting instructions
+create accounting forms that will be approved by the secretary and the coordinator of the body of elders
+
+** coordinator of the body of elders
+authorize the payment of operating expences
+signing various accounting forms
+arranging for the audit of accounts
+
+** signers
+those who authorize payments
+
+this list of brother authorized to make payments is kept in *the standing approvals* file
+
+* Resolutions
+to use funds outside ordinary operational expences
+present a written resolution to the congregation
+
+is a documment to show
+
+should be filed in the congregation accounts files
+
+* Collecting Contributions
+two brothers must be present 
+
+* Balance of congregation funds
+*target balance*
+must be saved in *standing approvals* folder
+
+* Recording Bank Account Activity to the Accounts Sheet (S-26)
