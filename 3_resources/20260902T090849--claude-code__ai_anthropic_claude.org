@@ -45,6 +45,8 @@ context for your session
 
 * MCP
 
+a way to add tools and resources to claude
+
 allows claude code to communicate outside your code base
 
 Model Context Protocol
@@ -493,3 +495,12 @@ you can have agents work on seperate worktrees
 * cheatsheet
 
 [[denote:20260921T114237][claude-code-cli-settings-cheat-sheet]]
+
+* Prompt and Context enginering
+
+Specific instructions (prompt)
+Relative information (context)
+
+any task you want the AI to do starts with a promt
+
+@file is a way to add context
