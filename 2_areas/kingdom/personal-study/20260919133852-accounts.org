@@ -156,3 +156,6 @@ two brothers must be present
 must be saved in *standing approvals* folder
 
 * Recording Bank Account Activity to the Accounts Sheet (S-26)
+
+* Audit roles and responsibilities
+audit must be done by co-ordinator of body of elders
