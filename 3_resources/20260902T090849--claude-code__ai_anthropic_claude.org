@@ -14,6 +14,10 @@ typechecking
 browser
 tests
 
+
+* tools
+Read,Write,Bash
+
 * terminal setup
 ~/terminal-setup~ : allows Shift + Enter for new line
 
@@ -27,6 +31,8 @@ provide context to claude code
 ~#~ : to memorize command in claude.md 
 
 * context
+
+context for your session
 
 ~@path/to/file~ : you can add a file as context to claude code
 
@@ -414,6 +420,8 @@ subagent are more for a focused task not colaborative
 
 select models
 
+~Alt + p~ : switch modeles
+
 * usage
 
 see usage of tokens
@@ -437,7 +445,7 @@ auto mode
 
 * resume
 
-resume previous conversation
+~/resume~ : resume previous session
 
 * .agents/skills
 
@@ -473,3 +481,15 @@ you can tell claude to work in a work tree
 --worktree
 
 you can have agents work on seperate worktrees
+
+* docker
+
+~docker sandbox run claude~:  run claude code in sandbox
+
+* sandbox
+
+~/sandbox~: run claude in sandbox mode
+
+* cheatsheet
+
+[[denote:20260921T114237][claude-code-cli-settings-cheat-sheet]]
