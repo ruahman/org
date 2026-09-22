@@ -4,7 +4,42 @@
 #+title: JW Hub Accounting
 #+filetags: :jwhub:accounting:
 
-* remittance
+* Guidelines
+
+1. the account servant is responsible for maintaining accurate up-to-date records for congregation accounts
+
+   use the documents provided by the branch office for keeping congregation account records
+   and follow instructions provided by document doc-1202548_s-us
+
+** Congregation Funds
+
+3. *Primary Account*:  the congregation should have only one primary account
+
+4. between 2 to 5 brothers should be approved to make payments from the primary account.
+   the account servant should not be authorized to make payments from the primary account.
+
+   a list of the approved brothers should be signed by the Congregation Service committee and save in the *standing approvals* file
+
+   Although the accounts servant is not authorized to make payments,
+   he should be able to monitor the account activity by means of an Internet banking tool.
+
+5. Monthly statements for the primary account should be given unopened to the secretary.
+
+   The secretary should review the statement for any irregularities and initial the statement before giving it to the accounts servant for reconciliation
+
+6. *The Accounts Sheet (S-26)* is the main ledger used to record transactions affecting the primary account
+
+8. *Target Balance*: The target balance is the amount the congregation should keep in the primary account to cover monthly operating expenses
+   (including any amounts sent to a Kingdom Hall Operating Committee), plus a reasonable buffer for unexpected costs.
+
+   the body of elders should calculate and approve the congregation target balance at least once a year
+   at the same time that the resolved monthly donation to the worldwide work is reviewed.
+
+   The following steps should be used to determine the congregation target balance:
+
+
+* Videos
+** remittance
 
 replaces transfer funds in jwhub
 
@@ -48,9 +83,9 @@ remittance is a three step process.
 
 primary users of this feature are the account servant and secretary.  
 
-* reconciliation
+** reconciliation
 
-** prerequisites
+*** prerequisites
 
 it's important to understand the difference between closing a month and reconciling a bank statement.
 these are two separate processes.
@@ -71,7 +106,7 @@ if it has not been read yet you can reopen the account and add transactions
 before remittance check if 3,7,8 are zero and line 9 matches the ending balance.
 if so you are ready to proceed with the remittance.
 
-** how to start and complete your first reconciliation
+*** how to start and complete your first reconciliation
 
 1. upload bank statement.
    only date range and balance is extracted from this.
@@ -89,7 +124,7 @@ if so you are ready to proceed with the remittance.
 
 
 
-* verify collected contributions
+** verify collected contributions
 
 there is a new process to collect and record contributions
 
@@ -119,28 +154,28 @@ after month is closed go to print reports and see attachments.
 
 all contributions must be verified before completing the remittance and closing the month 
 
-* Roles and Responsibilities
+** Roles and Responsibilities
 
-** congregation secretary
+*** congregation secretary
 primarily responsible to insure that accounting instructions are followed and accounting records are accurate
 oversees the account servant
 reviews bank statements
 
-** account servant
+*** account servant
 should have a through understanding of accounting instructions
 create accounting forms that will be approved by the secretary and the coordinator of the body of elders
 
-** coordinator of the body of elders
+*** coordinator of the body of elders
 authorize the payment of operating expences
 signing various accounting forms
 arranging for the audit of accounts
 
-** signers
+*** signers
 those who authorize payments
 
 this list of brother authorized to make payments is kept in *the standing approvals* file
 
-* Resolutions
+** Resolutions
 to use funds outside ordinary operational expences
 present a written resolution to the congregation
 
@@ -148,14 +183,16 @@ is a documment to show
 
 should be filed in the congregation accounts files
 
-* Collecting Contributions
+** Collecting Contributions
 two brothers must be present 
 
-* Balance of congregation funds
+** Balance of congregation funds
 *target balance*
 must be saved in *standing approvals* folder
 
-* Recording Bank Account Activity to the Accounts Sheet (S-26)
+** Recording Bank Account Activity to the Accounts Sheet (S-26)
 
-* Audit roles and responsibilities
+** Audit roles and responsibilities
 audit must be done by co-ordinator of body of elders
+
+
