@@ -1,38 +1,7 @@
 #+TODO: REPEAT(r) BACKLOG(b) TODO(t) NEXT(n) WAITING(w) | DONE(d!) CANCLED(d!)
 
-* todo
-
-** TODO Pickup Laptop
-
-** TODO Pickup Shoes
-
-** DONE Test
-CLOSED: [2026-09-12 Sat 20:31]
-:LOGBOOK:
-- State "DONE"       from "TODO"       [2026-09-12 Sat 20:31]
-:END:
-
-* scheduled 
-
-** TODO Shepherding call
-SCHEDULED: <2026-09-26 Sat 13:00>
+* tasks
 
 ** TODO Doctors
 SCHEDULED: <2026-12-21 Mon 10:30>
 
-* repeat
-
-** REPEAT Gym Payment
-SCHEDULED: <2026-10-14 Wed ++1m>
-
-** REPEAT Rent
-SCHEDULED: <2026-09-12 Sat ++1m>
-
-** REPEAT Heart Worm
-SCHEDULED: <2026-09-25 Fri ++1m>
-
-* backlog
-
-** BACKLOG accountant 
-
-** BACKLOG dentist 
