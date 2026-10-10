@@ -5,15 +5,6 @@
 
 Agentic Coding Tool
 
-has tools
-
-AI thrives in good coded bases
-
-AI needs feedback loops
-typechecking
-browser
-tests
-
 
 * tools
 Read,Write,Bash
@@ -430,6 +421,7 @@ see usage of tokens
 
 * btw
 you can ask a side question
+which doesn interfer with the main conversation
 
 * !
 command mode, you can run a shell command in promtp
@@ -504,3 +496,6 @@ Relative information (context)
 any task you want the AI to do starts with a promt
 
 @file is a way to add context
+
+* thinking mode
+deep think uses more tokens but plan is ussualy better

@@ -16,8 +16,13 @@ deep integration with coding agents
 automatically detect ai agents and shows up in agents sidebar
 
 spaces sidebar
+  workspaces that holds tabs
+  think of them like projects
+  
 agents sidebar
-
+  agents that are active in workspace
+  
+  
 claude code plugin can communicat with other agents
 
 
