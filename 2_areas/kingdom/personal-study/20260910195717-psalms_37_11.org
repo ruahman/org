@@ -2,7 +2,7 @@
 :ID:       ad5a4376-5c25-481a-9e7b-d75b8d261b14
 :END:
 #+title: Psalms 37:10,11
-#+filetags: :bible:
+#+filetags: :bible:peace:
 
 Just a little while longer, and the wicked will be no more;
 you will look at where they were,

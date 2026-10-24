@@ -1,0 +1,5 @@
+:PROPERTIES:
+:ID:       98604b4e-6ee5-485e-93bc-a6a4680b5ca7
+:END:
+#+title: trinity
+

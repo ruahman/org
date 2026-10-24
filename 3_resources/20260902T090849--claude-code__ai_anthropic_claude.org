@@ -23,6 +23,9 @@ provide context to claude code
 
 * context
 
+context bloat
+context poising
+
 context for your session
 
 ~@path/to/file~ : you can add a file as context to claude code
@@ -86,19 +89,11 @@ explain code standards to claude
 
 skills is so you don't have to repeate yourself
 
-claude compaire prompt to skill descriptions
-
-~.claude/skills~
-
-skills load on demand when they match your request
-
 if you find yourself repeating to claude then that is a skill
 
 you need to specify skill for subagents, they are not automatically loaded
 
 you can specify which tools and model to use in a skill
-
-try to keep your skill under 500 line.  if you cant then consider splitting it up.
 
 #+begin_src markdown
   ---
@@ -108,8 +103,6 @@ try to keep your skill under 500 line.  if you cant then consider splitting it u
   instructions
 #+end_src
 - description tell claude when to use it, matching criteria
-
-skills are reusabel instructions
 
 you can store reference and script in the folder.  they only get added to context when needed
 
@@ -128,8 +121,6 @@ Progressive Disclosure : load refrences and scripts as needed to context
 we can setup skill that run custom scripts
 
 frontend design skill???
-
-agents need well defined processes
 
 skills help stear your agents to keep them on the right track
 
@@ -301,7 +292,6 @@ it keeps you context clean
 
 you can specify the model the agent should run
 
-progresive disclosure, claude reads promt and desides if it needs to run it
 
 you can make specialists
 security-auditor
@@ -310,8 +300,6 @@ doc-writer
 db-expert
 frontend-developer
 backend-developer
-
-awesome-claude-code-subagents
 
 it you just need it to do one thing than keep it inline
 
@@ -499,3 +487,22 @@ any task you want the AI to do starts with a promt
 
 * thinking mode
 deep think uses more tokens but plan is ussualy better
+
+* security review
+
+~/security-review~ : do security review on current branch
+
+
+* rewind
+~/rewind~ : undo changes to code a rewinds to a previous spot in converstaion
+
+
+* claude commands
+
+~/<command>~ : is a command you define.
+
+skills is starting to replace that
+
+* plugins
+
+it's everything,  skill, agents, commands, hooks

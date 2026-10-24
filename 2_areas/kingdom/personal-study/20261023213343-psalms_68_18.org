@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       ad2cedda-f649-415d-981c-c89b928b839d
+:END:
+#+title: Psalms 68:18
+#+filetags: :bible:
+
+.. you carried away captives;
+you took gifts in the form of men,
