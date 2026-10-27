@@ -217,7 +217,29 @@ automatically work on issues
 
 need github cli installed on your computer
 
-~/install-github~ : setup claude Github Actions for repo
+~/install-github-app~ : setup claude Github Actions for repo
+
+it setup two github action
+one for code review
+another to fix issues
+
+@claude code
+tag @claude in issues and PR comments
+
+claude code review
+automated code review on new PRs
+
+it will make a pull request
+
+automatically review pull requests
+
+you should see actions in actions
+
+you can tell claude code to handle an issue in github my using a tag
+just mention claude in a comment
+it will then make a pr for you
+
+when you make a PR it cause a claude code review
 
 * tools
 
