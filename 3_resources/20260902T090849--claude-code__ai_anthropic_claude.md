@@ -1,9 +1,115 @@
-#+title:      claude code
-#+date:       [2026-09-02 Wed 09:08]
-#+filetags:   :ai:anthropic:claude:
-#+identifier: 20260902T090849
++++
+title      = "claude code"
+date       = 2026-09-02T09:08:00-04:00
+tags       = ["ai", "anthropic", "claude"]
+identifier = "20260902T090849"
++++
 
-Agentic Coding Tool
+Claude code is an Agentic Coding Tool
+it reads your code base, edit files, runs commands and integrates with your development tools
+
+it is recommended that you have git and github cli on your machine
+
+you can automate code review by integrating claude with github Actions
+
+# MCP
+*MCP* is a standard for connecting AI tools to external data sources.
+
+# claude.md
+*claude.md* is a markdown file that you add to the root of your project that claude code reads at the start of each session.
+use it the set coding standards, architecture design, preferred libraries, and reviewed check list.
+if you already have an *agents.md* setup for other coding agents, Claude can read that
+
+# skills
+you can create *skills* to package repeatable workflows like ~/review-pr~ or ~/deploy-to-staging~
+
+# hooks
+*hooks* lets you run shell commands before or after claude code actions,
+like auto format or linking after claude does an action
+
+# agents
+you can run agents in parallel and create custom agents
+spawn multiple agents that work on different parts of a task.
+a lead agent coordinates the work, assigns sub tasks, and merges results
+
+# CLI
+claude code is composable and follows the Unix philosophy.
+you can pipe to it and chain it to cli commands
+
+# schedule
+you can schedule recurring task using the cloud, or you desktop
+
+# debug???
+you can debug web application using chrome????
+
+# when first opening a project in claude code
+these are the questions you can start to ask
+`what does this project do?`
+`what technologies does this project use?`
+`where is the main entry point?`
+`explain the folder structure`
+`how can I create a custom skill for this project?`
+
+`Shift-Tab` to switch permision mode
+
+you can tell claude to **refactor**, **write unite tests**, **update documentation**, and **code review**
+
+describe to claude what you want to achieve and claude will help you to get there.
+
+`claude -c` continue that last session
+`claude -r` resume one of the previous conversations
+
+`/clear` clear context
+`/exit` or `Ctrl-d` twice to exit
+
+be specific with you instuctions
+try to break them into steps
+before asking claude to do something let claude understand your code. for example tell claude to first `analyze the database schema`
+you can save time my writing skills
+
+# Core concepts
+
+**agentic loop**, **tools**, how claude code interacts with your project
+
+we will cover claude code's core architecture, built-in capabilities, tip for working effectively, common workflows
+
+## the agentic loop
+
+when you give claude code a task it works through three phases,
+- gather context
+- take action
+- verify results
+
+claude uses tools for searching and editing files and running test to verify
+
+the agentic loop is powered by two components,
+
+- models
+  claude code uses models to understand your code and reason about tasks
+  it breaks work up into steps
+  **sonnet** does most coding tasks well
+  **opus** is good for planning
+  
+- tools
+  without tools claude can only respond with text
+  with tools it can ready your code, edit files, search the web, and interact with external services
+  
+  tools fall into 5 categories
+  **file operations**,
+  **search**,
+  **execution**,
+  **web**,
+  **code inteligence** 
+    need code inteligence plugins
+	
+you can extend claude with **skills**, **mcp**, **hooks**, and **subagents**
+these extentions form a layer on top of the agentic loop
+
+
+
+
+claude code the the layer around the model that provides the tools and context for the model to do work.
+this is called an **agentic harnes**
 
 
 * tools
